@@ -1,0 +1,500 @@
+'use client';
+
+import { useLanguage } from '@/contexts/LanguageContext';
+import Image from 'next/image';
+import Link from 'next/link';
+
+export default function WhyInvestPage() {
+  const { lang } = useLanguage();
+  
+  return (
+    <div className="py-12 bg-gray-50 min-h-screen">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 
+          className="text-3xl font-bold text-gray-900 mb-8 text-center"
+          dir={lang === "he" ? "rtl" : "ltr"}
+        >
+          {lang === "he" ? "למה להשקיע בנדל\"ן בתאילנד?" : "Why Invest in Thailand Real Estate?"}
+        </h1>
+        
+        {/* Hero Image */}
+        <div className="relative h-80 w-full mb-12 rounded-xl overflow-hidden">
+          <Image
+            src="/images/pexels-jimmy-teoh-294331-2402000.jpg"
+            alt={lang === "he" ? "השקעות נדל\"ן בתאילנד" : "Thailand Real Estate Investments"}
+            fill
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
+            <h2 className="text-white text-3xl md:text-4xl font-bold text-center max-w-3xl px-6">
+              {lang === "he" 
+                ? "הזדמנויות השקעה בשוק צומח עם תשואות אטרקטיביות" 
+                : "Investment Opportunities in a Growing Market with Attractive Returns"
+              }
+            </h2>
+          </div>
+        </div>
+        
+        {/* Introduction */}
+        <div className="bg-white rounded-xl shadow-md p-8 mb-10" dir={lang === "he" ? "rtl" : "ltr"}>
+          <p className="text-lg text-gray-700 mb-6">
+            {lang === "he"
+              ? "תאילנד מהווה יעד השקעה מרתק עם פוטנציאל תשואה גבוה, הודות לשילוב של מחירים תחרותיים, צמיחה כלכלית יציבה ושוק תיירות משגשג. למרות שאינה בהכרח האפשרות הראשונה שעולה בראשם של משקיעים ישראלים, בחינה מעמיקה של שוק הנדל\"ן התאילנדי חושפת הזדמנויות השקעה ייחודיות עם יתרונות משמעותיים."
+              : "Thailand represents an exciting investment destination with high return potential, thanks to a combination of competitive prices, stable economic growth, and a thriving tourism market. While it may not be the first option that comes to mind for many investors, a thorough examination of the Thai real estate market reveals unique investment opportunities with significant advantages."
+            }
+          </p>
+          <p className="text-lg text-gray-700">
+            {lang === "he"
+              ? "בעמוד זה נסקור את היתרונות המרכזיים, מגמות השוק העדכניות, סוגי הנכסים האטרקטיביים ביותר, ואזורי ההשקעה המבטיחים ביותר בתאילנד. כמו כן, נתייחס לשיקולים משפטיים חשובים למשקיעים זרים ונספק נתונים מספריים להמחשת פוטנציאל התשואה."
+              : "On this page, we'll review the key advantages, current market trends, most attractive property types, and most promising investment areas in Thailand. We'll also address important legal considerations for foreign investors and provide numerical data to illustrate return potential."
+            }
+          </p>
+        </div>
+        
+        {/* Market Trends */}
+        <div className="bg-white rounded-xl shadow-md p-8 mb-10" dir={lang === "he" ? "rtl" : "ltr"}>
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">
+            {lang === "he" ? "מגמות שוק הנדל\"ן בתאילנד" : "Thailand Real Estate Market Trends"}
+          </h2>
+          
+          <ul className="space-y-4 text-gray-700">
+            <li className="flex gap-3">
+              <div className="flex-shrink-0 text-blue-600">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                </svg>
+              </div>
+              <p>
+                {lang === "he"
+                  ? "מחירי הנדל\"ן בתאילנד עלו בכ-18% בעשור האחרון, עם עלייה ממוצעת של 4.3% בשנה האחרונה בלבד. מגמת הצמיחה נשארת עקבית למרות תנודות זמניות בתקופת הקורונה."
+                  : "Real estate prices in Thailand have increased by approximately 18% over the past decade, with an average increase of 4.3% in the last year alone. The growth trend remains consistent despite temporary fluctuations during the COVID period."
+                }
+              </p>
+            </li>
+            <li className="flex gap-3">
+              <div className="flex-shrink-0 text-blue-600">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                </svg>
+              </div>
+              <p>
+                {lang === "he"
+                  ? "ירידה של כ-30% בהתחלות בנייה משנת 2019 עקב בירוקרטיה מקומית, יוצרת פער הולך וגדל בין ביקוש שעולה להיצע שמצטמצם - תנאי שוק אידיאליים להשקעה ועליית ערך עתידית."
+                  : "A decrease of about 30% in construction starts since 2019 due to local bureaucracy is creating a growing gap between rising demand and shrinking supply - ideal market conditions for investment and future value appreciation."
+                }
+              </p>
+            </li>
+            <li className="flex gap-3">
+              <div className="flex-shrink-0 text-blue-600">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <p>
+                {lang === "he"
+                  ? "ממשלת תאילנד הפגינה יכולת התאוששות מרשימה ממשבר הקורונה, ומציעה תמריצים מיוחדים למשקיעים זרים הכוללים הקלות מס, הסרת חסמים בירוקרטיים, והארכת ויזות מיוחדות למשקיעים."
+                  : "The Thai government has demonstrated impressive recovery abilities from the COVID crisis and offers special incentives to foreign investors including tax breaks, removal of bureaucratic barriers, and extended special visas for investors."
+                }
+              </p>
+            </li>
+            <li className="flex gap-3">
+              <div className="flex-shrink-0 text-blue-600">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+              </div>
+              <p>
+                {lang === "he"
+                  ? "מומחי נדל\"ן בינלאומיים וגופי השקעות מובילים חוזים עלייה משמעותית של 25%-35% במחירי נדל\"ן באזורי הביקוש המרכזיים בטווח של 4-6 השנים הקרובות, המגובה בצמיחה כלכלית, השקעות בתשתיות וגידול בתיירות."
+                  : "International real estate experts and leading investment bodies predict a significant 25%-35% increase in real estate prices in key demand areas over the next 4-6 years, supported by economic growth, infrastructure investments, and tourism expansion."
+                }
+              </p>
+            </li>
+            <li className="flex gap-3">
+              <div className="flex-shrink-0 text-blue-600">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                </svg>
+              </div>
+              <p>
+                {lang === "he"
+                  ? "אוכלוסיית תאילנד מונה מעל 70 מיליון תושבים, עם צפיפות גבוהה באזורים העירוניים והקצאת שטחים נרחבים לחקלאות, מה שמגביל את פוטנציאל הבנייה ומגדיל את ערך הנדל\"ן הקיים."
+                  : "Thailand's population exceeds 70 million residents, with high density in urban areas and extensive land allocation for agriculture, which limits building potential and increases the value of existing real estate."
+                }
+              </p>
+            </li>
+          </ul>
+        </div>
+        
+        {/* Investment Advantages */}
+        <div className="bg-white rounded-xl shadow-md p-8 mb-10" dir={lang === "he" ? "rtl" : "ltr"}>
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">
+            {lang === "he" ? "יתרונות השקעה בנדל\"ן בתאילנד" : "Advantages of Investing in Thailand Real Estate"}
+          </h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="border border-gray-200 rounded-lg p-5">
+              <h3 className="text-xl font-bold text-gray-800 mb-3">
+                {lang === "he" ? "סף כניסה נמוך" : "Low Entry Threshold"}
+              </h3>
+              <p className="text-gray-700">
+                {lang === "he"
+                  ? "מחירי נכסים בתאילנד נמוכים ב-60%-75% בהשוואה לישראל וב-40%-50% בהשוואה לערים מערביות מרכזיות. דירת סטודיו איכותית במיקום מצוין מתחילה ב-$25,000 בלבד, ודירות מרווחות במיקומי פרימיום זמינות החל מ-$100,000 - סכומים שבקושי מספיקים למקדמה על דירה בישראל."
+                  : "Property prices in Thailand are 60%-75% lower compared to Israel and 40%-50% lower than in major Western cities. Quality studio apartments in excellent locations start at just $25,000, and spacious apartments in premium locations are available from $100,000 - amounts that barely cover a down payment for an apartment in Israel."
+                }
+              </p>
+            </div>
+            
+            <div className="border border-gray-200 rounded-lg p-5">
+              <h3 className="text-xl font-bold text-gray-800 mb-3">
+                {lang === "he" ? "תיירות ענפה כל השנה" : "Year-Round Tourism"}
+              </h3>
+              <p className="text-gray-700">
+                {lang === "he"
+                  ? "תאילנד מארחת מעל 40 מיליון תיירים בשנה עם אחוז תפוסה ממוצע של 72% באזורי התיירות המרכזיים. האקלים הטרופי מאפשר תיירות פעילה 12 חודשים בשנה, בניגוד ליעדים עונתיים. סטטיסטיקות עדכניות מראות שתייר ממוצע מוציא כ-1,500$ על מגורים בביקור ממוצע של 9 ימים, מה שמייצר שוק אדיר להשכרות קצרות טווח."
+                  : "Thailand hosts over 40 million tourists annually with an average occupancy rate of 72% in major tourist areas. The tropical climate allows for active tourism 12 months a year, unlike seasonal destinations. Recent statistics show that the average tourist spends about $1,500 on accommodation during an average 9-day visit, creating an enormous market for short-term rentals."
+                }
+              </p>
+            </div>
+            
+            <div className="border border-gray-200 rounded-lg p-5">
+              <h3 className="text-xl font-bold text-gray-800 mb-3">
+                {lang === "he" ? "מיסוי נמוך ותומך השקעות" : "Low and Investment-Friendly Taxation"}
+              </h3>
+              <p className="text-gray-700">
+                {lang === "he"
+                  ? "משטר המס בתאילנד ידידותי במיוחד למשקיעים, עם שיעור מס רכישה של 9%-13% בלבד (בממוצע 10%), שנחלק בין המוכר לקונה. בנוסף, אין מס ארנונה שנתי, אין מס על רכוש, ואין מס על הכנסות מהשכרה עד לסכום מסוים. זאת בניגוד למדינות מערביות רבות עם מיסי נדל\"ן גבוהים הפוגעים ברווחיות."
+                  : "Thailand's tax regime is particularly investor-friendly, with a purchase tax rate of just 9%-13% (averaging 10%), which is split between the seller and buyer. Additionally, there is no annual property tax, no wealth tax, and no tax on rental income up to a certain amount. This contrasts with many Western countries with high real estate taxes that reduce profitability."
+                }
+              </p>
+            </div>
+            
+            <div className="border border-gray-200 rounded-lg p-5">
+              <h3 className="text-xl font-bold text-gray-800 mb-3">
+                {lang === "he" ? "תשואות גבוהות במיוחד" : "Exceptionally High Returns"}
+              </h3>
+              <p className="text-gray-700">
+                {lang === "he"
+                  ? "דירות מגורים בתאילנד מניבות תשואה שנתית של 4%-9%, פי 1.5-2 מהממוצע בישראל. נכסי תיירות באזורי ביקוש מציעים תשואות של 12%-20% ואף יותר בעונות השיא. בשקלול עליית ערך הנכס (ממוצע של 4.3% בשנה), התשואה הכוללת על השקעה עשויה להגיע ל-12%-25% בשנה - מהגבוהות בעולם בהשקעות נדל\"ן."
+                  : "Residential properties in Thailand generate annual returns of 4%-9%, 1.5-2 times higher than the average in Israel. Tourism properties in high-demand areas offer returns of 12%-20% or more during peak seasons. When factoring in property value appreciation (average of 4.3% per year), the total return on investment can reach 12%-25% annually - among the highest in the world for real estate investments."
+                }
+              </p>
+            </div>
+            
+            <div className="border border-gray-200 rounded-lg p-5 md:col-span-2">
+              <h3 className="text-xl font-bold text-gray-800 mb-3">
+                {lang === "he" ? "תשתיות מתקדמות וקישוריות" : "Advanced Infrastructure and Connectivity"}
+              </h3>
+              <p className="text-gray-700">
+                {lang === "he"
+                  ? "תאילנד השקיעה למעלה מ-100 מיליארד דולר בשנים האחרונות בשדרוג תשתיות תחבורה, תקשורת ואנרגיה. רשת הרכבות המהירות החדשה, הרחבת שדות התעופה הבינלאומיים, ופריסת רשת 5G ברחבי המדינה משפרים משמעותית את הנגישות וערך הנכסים באזורים המחוברים. תוכנית התשתיות לחמש השנים הקרובות צפויה להגדיל עוד יותר את ערך הנדל\"ן בערים הגדולות."
+                  : "Thailand has invested over $100 billion in recent years in upgrading transportation, communication, and energy infrastructure. The new high-speed rail network, expansion of international airports, and nationwide 5G network deployment significantly improve accessibility and property values in connected areas. The infrastructure plan for the next five years is expected to further increase real estate values in major cities."
+                }
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        {/* Recommended Areas */}
+        <div className="bg-white rounded-xl shadow-md p-8 mb-10" dir={lang === "he" ? "rtl" : "ltr"}>
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">
+            {lang === "he" ? "אזורי השקעה מומלצים" : "Recommended Investment Areas"}
+          </h2>
+          
+          <div className="space-y-6">
+            <div className="border-b border-gray-200 pb-5">
+              <h3 className="text-xl font-bold text-gray-800 mb-2">
+                {lang === "he" ? "בנגקוק" : "Bangkok"}
+              </h3>
+              <p className="text-gray-700 mb-3">
+                {lang === "he"
+                  ? "בירת תאילנד היא מטרופולין דינמי המונה כ-10 מיליון תושבים ומהווה מרכז כלכלי, תרבותי ותיירותי. ההשקעה בבנגקוק מציעה שילוב מושלם של ביטחון ותשואה, עם ביקוש גבוה מצד האוכלוסייה המקומית המבוססת, עסקים בינלאומיים ותיירים. אזורי סוקומוויט, סילום ורצ'דה מציעים את האפשרויות הטובות ביותר. מחירי דירות סטודיו נעים בין $60,000 ל-$120,000, ודירות 2 חדרים בין $180,000 ל-$360,000, עם תשואת שכירות ממוצעת של 5%-7% ועלייה שנתית של 5%-6% בערך הנכס."
+                  : "Thailand's capital is a dynamic metropolis of about 10 million residents and serves as an economic, cultural, and tourist center. Investing in Bangkok offers a perfect combination of security and returns, with high demand from the established local population, international businesses, and tourists. The Sukhumvit, Silom, and Ratchada areas offer the best opportunities. Studio apartment prices range from $60,000 to $120,000, and 2-bedroom apartments between $180,000 and $360,000, with average rental yields of 5%-7% and annual property value increases of 5%-6%."
+                }
+              </p>
+            </div>
+            
+            <div className="border-b border-gray-200 pb-5">
+              <h3 className="text-xl font-bold text-gray-800 mb-2">
+                {lang === "he" ? "פוקט" : "Phuket"}
+              </h3>
+              <div className="flex flex-col md:flex-row md:items-start md:gap-6">
+                <div className="md:w-1/2 mb-4 md:mb-0">
+                  <p className="text-gray-700 mb-3">
+                    {lang === "he"
+                      ? "אי תיירותי עם שדה תעופה בינלאומי, המציע מגוון נכסי תיירות ומגורים. השקעה בסיכון נמוך ופוטנציאל תשואה גבוה. מחירי דירות סטודיו נעים בין $50,000 ל-$250,000."
+                      : "A tourist island with an international airport, offering a variety of tourism and residential properties. Low-risk investment with high return potential. Studio apartment prices range from $50,000 to $250,000."
+                    }
+                  </p>
+                </div>
+                <div className="md:w-1/2">
+                  <div className="relative h-52 w-full rounded-lg overflow-hidden">
+                    <Image
+                      src="/images/pexels-jimmy-teoh-294331-2402000.jpg"
+                      alt={lang === "he" ? "נוף פוקט, תאילנד" : "Phuket, Thailand landscape"}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="border-b border-gray-200 pb-5">
+              <h3 className="text-xl font-bold text-gray-800 mb-2">
+                {lang === "he" ? "צ'אנג מאי" : "Chiang Mai"}
+              </h3>
+              <p className="text-gray-700 mb-3">
+                {lang === "he"
+                  ? "עיר בצפון תאילנד עם מחירי נדל\"ן נמוכים משמעותית. מהווה יעד תיירות טבע וכן מוקד לנדל\"ן מסחרי מתפתח. דירות סטודיו החל מ-$25,000 בלבד."
+                  : "A city in northern Thailand with significantly lower real estate prices. A nature tourism destination and a hub for developing commercial real estate. Studio apartments starting from just $25,000."
+                }
+              </p>
+            </div>
+            
+            <div>
+              <h3 className="text-xl font-bold text-gray-800 mb-2">
+                {lang === "he" ? "קו סמוי" : "Koh Samui"}
+              </h3>
+              <p className="text-gray-700 mb-3">
+                {lang === "he"
+                  ? "אי פרימיום מרהיב בים הדרומי של תאילנד, המפורסם בחופיו הפסטורליים, מלונות הבוטיק ואווירה רגועה יותר בהשוואה לפוקט. קו סמוי מושך תיירים אמידים יותר ומציע אפשרויות השקעה בנכסים יוקרתיים. האזורים המובילים כוללים את צ'אוונג, למאי ובופוט, עם מגוון של וילות פרטיות ודירות נופש ברמה גבוהה. שיעורי התפוסה מגיעים ל-75% ומעלה בעונת השיא, עם אפשרויות השכרה קצרות-טווח מרווחיות במיוחד בפלטפורמות כמו Airbnb. המחירים נעים בין $45,000 לדירות סטודיו בסיסיות ועד $350,000 לדירות יוקרה, עם תשואה שנתית ממוצעת של 6%-15%."
+                  : "A stunning premium island in Thailand's southern sea, famous for its pastoral beaches, boutique hotels, and more relaxed atmosphere compared to Phuket. Koh Samui attracts more affluent tourists and offers investment opportunities in luxury properties. Leading areas include Chaweng, Lamai, and Bophut, with a variety of private villas and high-end vacation apartments. Occupancy rates reach 75% and above in peak season, with particularly profitable short-term rental options on platforms like Airbnb. Prices range from $45,000 for basic studio apartments to $350,000 for luxury apartments, with average annual returns of 6%-15%."
+                }
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        {/* Property Types */}
+        <div className="bg-white rounded-xl shadow-md p-8 mb-10" dir={lang === "he" ? "rtl" : "ltr"}>
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">
+            {lang === "he" ? "סוגי נכסים להשקעה" : "Property Types for Investment"}
+          </h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 className="text-xl font-bold text-gray-800 mb-3">
+                {lang === "he" ? "נכסי מגורים" : "Residential Properties"}
+              </h3>
+              <p className="text-gray-700 mb-2">
+                {lang === "he"
+                  ? "דירות ובתים המושכרים לתושבים מקומיים באזורים עירוניים כמו בנגקוק, הם ההשקעה היציבה והבטוחה ביותר. דירות סטודיו (30-40 מ\"ר) ודירות חדר או שניים מניבות תשואה יציבה של 4%-9% ונהנות מהסיכון הנמוך ביותר ומעליית ערך קבועה של 4%-6% בשנה. דרושה השקעה מינימלית של $30,000-$180,000 בהתאם לאזור ואיכות הנכס."
+                  : "Apartments and houses rented to local residents in urban areas like Bangkok are the most stable and secure investment. Studio apartments (30-40 sq.m) and one or two-bedroom apartments yield stable returns of 4%-9% and enjoy the lowest risk along with consistent value appreciation of 4%-6% per year. Requires a minimum investment of $30,000-$180,000 depending on the area and property quality."
+                }
+              </p>
+            </div>
+            
+            <div>
+              <h3 className="text-xl font-bold text-gray-800 mb-3">
+                {lang === "he" ? "נכסי תיירות" : "Tourism Properties"}
+              </h3>
+              <p className="text-gray-700 mb-2">
+                {lang === "he"
+                  ? "יחידות נופש באזורי תיירות כמו פוקט, קו סמוי ופטאיה מציעות את פוטנציאל הרווח הגבוה ביותר. השכרה קצרת טווח דרך פלטפורמות כמו Airbnb או Booking.com יכולה להניב 12%-20% תשואה שנתית בממוצע, ועד 30% בעונות השיא. נכסים אלה גם נהנים מעליית ערך מהירה יותר, 6%-10% בשנה. אולם, הם דורשים ניהול אקטיבי יותר או תשלום לחברת ניהול (כ-15%-20% מההכנסות). טווח השקעה: $45,000-$300,000."
+                  : "Vacation units in tourist areas like Phuket, Koh Samui, and Pattaya offer the highest profit potential. Short-term rentals through platforms like Airbnb or Booking.com can yield 12%-20% annual returns on average, and up to 30% during peak seasons. These properties also enjoy faster value appreciation, 6%-10% per year. However, they require more active management or payment to a management company (about 15%-20% of income). Investment range: $45,000-$300,000."
+                }
+              </p>
+            </div>
+            
+            <div>
+              <h3 className="text-xl font-bold text-gray-800 mb-3">
+                {lang === "he" ? "נכסים מסחריים" : "Commercial Properties"}
+              </h3>
+              <p className="text-gray-700 mb-2">
+                {lang === "he"
+                  ? "משרדים, חנויות ומבני תעשייה מציעים את היתרון של חוזי שכירות ארוכי טווח (3-10 שנים) עם עסקים מבוססים, מה שמבטיח הכנסה יציבה וחסכון בעלויות ניהול שוטפות. תשואות ממוצעות של 7%-12% ביחס להשקעה המקורית, עם עליית ערך שנתית של 3%-5%. יתרון נוסף הוא המיסוי המופחת על נכסים מסחריים בתאילנד. נכסים אלה דורשים הון התחלתי גבוה יותר, החל מ-$100,000 ומעלה."
+                  : "Offices, shops, and industrial buildings offer the advantage of long-term rental contracts (3-10 years) with established businesses, ensuring stable income and savings on ongoing management costs. Average returns of 7%-12% relative to the original investment, with annual value increases of 3%-5%. An additional advantage is reduced taxation on commercial properties in Thailand. These properties require higher initial capital, starting from $100,000 and up."
+                }
+              </p>
+            </div>
+            
+            <div>
+              <h3 className="text-xl font-bold text-gray-800 mb-3">
+                {lang === "he" ? "נכסים ייחודיים" : "Unique Properties"}
+              </h3>
+              <p className="text-gray-700 mb-2">
+                {lang === "he"
+                  ? "קונדו-הוטל ופרויקטים משולבים הם מודל השקעה חדשני המשלב יתרונות של נדל\"ן מגורים עם ניהול מלונאי מקצועי. המשקיע רוכש יחידה בבניין המנוהל כמלון, נהנה משימוש אישי מוגבל (בד\"כ 14-30 ימים בשנה), ובשאר הזמן היחידה מושכרת לתיירים עם חלוקת רווחים של 50%-70% למשקיע. השקעות אלה מציעות תשואה שנתית של 8%-15% ללא דאגות ניהול, וגם נהנות מעליית ערך משמעותית בשל הפופולריות הגוברת שלהן. טווח מחירים: $60,000-$400,000."
+                  : "Condo-hotels and mixed-use projects are an innovative investment model combining the advantages of residential real estate with professional hotel management. The investor purchases a unit in a building managed as a hotel, enjoys limited personal use (typically 14-30 days per year), and the rest of the time the unit is rented to tourists with profit sharing of 50%-70% to the investor. These investments offer annual returns of 8%-15% without management worries, and also enjoy significant value appreciation due to their growing popularity. Price range: $60,000-$400,000."
+                }
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        {/* Legal Considerations */}
+        <div className="bg-white rounded-xl shadow-md p-8 mb-10" dir={lang === "he" ? "rtl" : "ltr"}>
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">
+            {lang === "he" ? "שיקולים משפטיים וחוקיים" : "Legal and Regulatory Considerations"}
+          </h2>
+          
+          <ul className="space-y-4 text-gray-700">
+            <li className="flex gap-3">
+              <div className="flex-shrink-0 text-blue-600">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <p>
+                {lang === "he"
+                  ? "על פי חוק הקרקעות התאילנדי, זרים יכולים לרכוש דירות באופן חוקי ולהחזיק בבעלות מלאה, אך קיימת מגבלה מוחלטת על רכישת קרקעות חקלאיות. משקיעים זרים המעוניינים בקרקע או בית צמוד קרקע נדרשים להקים חברה תאילנדית עם שותפים מקומיים."
+                  : "According to Thai land law, foreigners can legally purchase apartments and hold full ownership, but there is an absolute restriction on buying agricultural land. Foreign investors interested in land or land-attached houses are required to establish a Thai company with local partners."
+                }
+              </p>
+            </li>
+            <li className="flex gap-3">
+              <div className="flex-shrink-0 text-blue-600">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <p>
+                {lang === "he"
+                  ? "בבנייני דירות משותפים (קונדומיניום), החוק מגביל את הבעלות הזרה לכל היותר 40% מסך היחידות בבניין. חשוב לוודא בפרויקטים חדשים שמכסת הזרים עדיין לא מולאה. פרויקטים רבים שומרים מכסה עבור משקיעים זרים, אך היא עשויה להתמלא במהירות באזורי ביקוש."
+                  : "In condominium buildings, the law limits foreign ownership to at most 40% of the total units in the building. It's important to verify in new projects that the foreign quota has not yet been filled. Many projects reserve quotas for foreign investors, but these may fill up quickly in high-demand areas."
+                }
+              </p>
+            </li>
+            <li className="flex gap-3">
+              <div className="flex-shrink-0 text-blue-600">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <p>
+                {lang === "he"
+                  ? "אין מגבלות על רכישת נכסים מסחריים או נכסים פרטיים אחרים על ידי זרים, מלבד אלו המצוינים. משקיעים יכולים להחזיק במלוא הבעלות על חנויות, משרדים, וסוגים אחרים של נדל\"ן מסחרי או תעשייתי, מה שמספק אפשרויות השקעה נוספות."
+                  : "There are no restrictions on foreigners purchasing commercial properties or other private properties, apart from those mentioned. Investors can hold full ownership of shops, offices, and other types of commercial or industrial real estate, providing additional investment options."
+                }
+              </p>
+            </li>
+            <li className="flex gap-3">
+              <div className="flex-shrink-0 text-blue-600">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <p>
+                {lang === "he"
+                  ? "חובה להיעזר בעורך דין מקומי המתמחה בנדל\"ן בינלאומי לביצוע בדיקות נאותות מקיפות, הכוללות בדיקת בעלות נקייה, היעדר שעבודים, אישורי בנייה תקפים והיתרי שימוש מתאימים. כמו כן, יש לוודא רישום הנכס בצורה נכונה במשרד הקרקעות התאילנדי (Land Department)."
+                  : "It is mandatory to use a local lawyer specializing in international real estate to conduct comprehensive due diligence, including checking for clean ownership, absence of liens, valid building permits, and appropriate usage permits. Also, proper registration of the property with the Thai Land Department must be verified."
+                }
+              </p>
+            </li>
+            <li className="flex gap-3">
+              <div className="flex-shrink-0 text-blue-600">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <p>
+                {lang === "he"
+                  ? "משקיעים זרים יכולים להעביר כספים לתאילנד ללא מגבלות בעת רכישת נדל\"ן, אך חשוב לקבל אישור העברת מט\"ח (Foreign Exchange Transaction Form) עבור סכומים מעל 50,000 דולר. אישור זה חיוני בעת מכירת הנכס בעתיד ורצון להוציא את הכספים מתאילנד ללא בעיות מיסוי."
+                  : "Foreign investors can transfer funds to Thailand without restrictions when purchasing real estate, but it's important to obtain a Foreign Exchange Transaction Form for amounts exceeding $50,000. This approval is essential when selling the property in the future and wanting to export the funds from Thailand without tax issues."
+                }
+              </p>
+            </li>
+          </ul>
+        </div>
+        
+        {/* Photo Gallery */}
+        <div className="bg-white rounded-xl shadow-md p-8 mb-10">
+          <h2 
+            className="text-2xl font-bold text-gray-900 mb-6"
+            dir={lang === "he" ? "rtl" : "ltr"}
+          >
+            {lang === "he" ? "גלריית תמונות - יופייה של תאילנד" : "Photo Gallery - The Beauty of Thailand"}
+          </h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="relative h-64 rounded-lg overflow-hidden">
+              <Image
+                src="/images/pexels-dutumong-2331028.jpg"
+                alt={lang === "he" ? "תאילנד - נוף טרופי" : "Thailand - Tropical Landscape"}
+                fill
+                className="object-cover hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+            <div className="relative h-64 rounded-lg overflow-hidden">
+              <Image
+                src="/images/pexels-mikhail-nilov-8299700.jpg"
+                alt={lang === "he" ? "תאילנד - בניינים מודרניים" : "Thailand - Modern Buildings"}
+                fill
+                className="object-cover hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+            <div className="relative h-64 rounded-lg overflow-hidden">
+              <Image
+                src="/images/pexels-mikhail-nilov-8299707.jpg"
+                alt={lang === "he" ? "תאילנד - אדריכלות מודרנית" : "Thailand - Modern Architecture"}
+                fill
+                className="object-cover hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+            <div className="relative h-64 rounded-lg overflow-hidden">
+              <Image
+                src="/images/pexels-mikhail-nilov-8299711.jpg"
+                alt={lang === "he" ? "תאילנד - מגדלי יוקרה" : "Thailand - Luxury Towers"}
+                fill
+                className="object-cover hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+            <div className="relative h-64 rounded-lg overflow-hidden">
+              <Image
+                src="/images/pexels-pixabay-358229.jpg"
+                alt={lang === "he" ? "תאילנד - נוף ים" : "Thailand - Sea View"}
+                fill
+                className="object-cover hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+            <div className="relative h-64 rounded-lg overflow-hidden">
+              <Image
+                src="/images/pexels-pixabay-415708.jpg"
+                alt={lang === "he" ? "תאילנד - חוף טרופי" : "Thailand - Tropical Beach"}
+                fill
+                className="object-cover hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+          </div>
+          
+          <p className="text-gray-600 mt-6 text-center"
+            dir={lang === "he" ? "rtl" : "ltr"}
+          >
+            {lang === "he"
+              ? "תאילנד מציעה שילוב מושלם של נופים טבעיים מרהיבים, ערים מודרניות ושקיעות קסומות - אידיאלי להשקעות נדל\"ן איכותיות"
+              : "Thailand offers a perfect blend of stunning natural landscapes, modern cities, and magical sunsets - ideal for quality real estate investments"
+            }
+          </p>
+        </div>
+        
+        {/* Call to Action */}
+        <div className="bg-blue-600 rounded-xl shadow-md p-8 text-white text-center">
+          <h2 className="text-2xl font-bold mb-4">
+            {lang === "he" ? "מוכנים להתחיל את מסע ההשקעה שלכם בתאילנד?" : "Ready to Start Your Investment Journey in Thailand?"}
+          </h2>
+          <p className="text-lg mb-6 max-w-3xl mx-auto">
+            {lang === "he"
+              ? "צוות המומחים שלנו, עם ניסיון של למעלה מ-10 שנים בשוק הנדל\"ן התאילנדי, יכול לסייע לכם לאתר את ההזדמנויות הטובות ביותר, להתמודד עם האתגרים המשפטיים והלוגיסטיים, ולהבטיח השקעה מוצלחת ומניבה. צרו איתנו קשר היום לייעוץ אישי ללא התחייבות."
+              : "Our team of experts, with over 10 years of experience in the Thai real estate market, can help you identify the best opportunities, navigate legal and logistical challenges, and ensure a successful and profitable investment. Contact us today for a no-obligation personal consultation."
+            }
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="/contact"
+              className="inline-block bg-white text-blue-600 px-8 py-3 rounded-lg font-medium text-lg transition-colors hover:bg-gray-100"
+            >
+              {lang === "he" ? "צור קשר עכשיו" : "Contact Us Now"}
+            </Link>
+            <Link
+              href="/properties"
+              className="inline-block bg-transparent border-2 border-white text-white px-8 py-3 rounded-lg font-medium text-lg transition-colors hover:bg-white/10"
+            >
+              {lang === "he" ? "צפה בנכסים זמינים" : "View Available Properties"}
+            </Link>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
