@@ -1,6 +1,6 @@
 'use client';
 
-import { createContext, useContext, useState, ReactNode } from 'react';
+import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 
 type Language = 'en' | 'he';
 
@@ -12,10 +12,23 @@ interface LanguageContextType {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
+  // Set default language initially to 'en'
   const [lang, setLang] = useState<Language>('en');
+  
+  // UseEffect will run only on client side after initial render
+  useEffect(() => {
+    // Get the saved language from localStorage on the client side
+    const savedLang = localStorage.getItem('language') as Language;
+    if (savedLang === 'he' || savedLang === 'en') {
+      setLang(savedLang);
+    }
+  }, []);
 
   const toggleLanguage = () => {
-    setLang((prev) => (prev === 'en' ? 'he' : 'en'));
+    const newLang = lang === 'en' ? 'he' : 'en';
+    setLang(newLang);
+    // Save to localStorage (this runs only on client side)
+    localStorage.setItem('language', newLang);
   };
 
   return (

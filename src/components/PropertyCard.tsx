@@ -3,6 +3,18 @@
 import { Property } from '@/types/property';
 import { useLanguage } from '@/contexts/LanguageContext';
 import Image from 'next/image';
+import { useState } from 'react';
+
+// Define currency types and conversion rates
+type Currency = 'THB' | 'ILS' | 'USD' | 'EUR';
+
+// Exchange rates (as of June 7, 2025)
+const EXCHANGE_RATES = {
+  THB: 1,       // Base currency (Thai Baht)
+  ILS: 0.105,   // Israeli Shekel rate to THB
+  USD: 0.029,   // US Dollar rate to THB
+  EUR: 0.026,   // Euro rate to THB
+};
 
 interface PropertyCardProps {
   property: Property;
@@ -10,6 +22,23 @@ interface PropertyCardProps {
 
 export default function PropertyCard({ property }: PropertyCardProps) {
   const { lang } = useLanguage();
+  const [currency, setCurrency] = useState<Currency>('THB');
+  
+  // Function to convert price to selected currency
+  const convertPrice = (price: number, targetCurrency: Currency): string => {
+    const convertedPrice = price * EXCHANGE_RATES[targetCurrency];
+    
+    // Format the price according to currency
+    if (targetCurrency === 'THB') {
+      return `${convertedPrice.toLocaleString()} ฿`;
+    } else if (targetCurrency === 'ILS') {
+      return `${convertedPrice.toLocaleString()} ₪`;
+    } else if (targetCurrency === 'USD') {
+      return `$${convertedPrice.toLocaleString()}`;
+    } else {
+      return `€${convertedPrice.toLocaleString()}`;
+    }
+  };
   
   return (
     <a
@@ -27,7 +56,12 @@ export default function PropertyCard({ property }: PropertyCardProps) {
           className="object-cover group-hover:scale-110 transition-transform duration-300"
         />
         <div className="absolute top-3 right-3 bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium">
-          {lang === "he" ? property.statusHe : property.status}
+          {lang === "he" ? property.statusHe : property.status === 'sale' ? 'For Sale' : 'For Rent'}
+        </div>
+        
+        {/* הוספת תגית זמינות - באתר המקורי יש "AVAILABLE NOW" */}
+        <div className="absolute top-3 left-3 bg-green-600 text-white px-3 py-1 rounded-full text-sm font-medium">
+          {lang === "he" ? "זמין עכשיו" : "Available Now"}
         </div>
       </div>
       
@@ -38,6 +72,24 @@ export default function PropertyCard({ property }: PropertyCardProps) {
         <p className="text-gray-600 mb-2">
           {lang === "he" ? property.locationHe : property.location}
         </p>
+        
+        {/* תגיות מאפיינים נוספים */}
+        <div className="flex flex-wrap gap-1 mb-3">
+          <span className="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">
+            {lang === "he" ? "נכס איכותי" : "Premium"}
+          </span>
+          {property.location.includes('Bangkok') && (
+            <span className="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">
+              {lang === "he" ? "מרכז העיר" : "City Center"}
+            </span>
+          )}
+          {property.bedrooms >= 3 && (
+            <span className="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">
+              {lang === "he" ? "משפחתי" : "Family"}
+            </span>
+          )}
+        </div>
+        
         <div className="flex gap-3 mb-3">
           <div className="flex items-center gap-1">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -59,12 +111,37 @@ export default function PropertyCard({ property }: PropertyCardProps) {
           </div>
         </div>
         <div className="mt-auto">
-          <p className="text-xl font-bold text-blue-600">
-            {property.status === 'rent' 
-              ? `${property.price.toLocaleString()} ${lang === "he" ? "฿/חודש" : "฿/month"}`
-              : `${property.price.toLocaleString()} ฿`
-            }
-          </p>
+          <div className="space-y-2">
+            <p className="text-xl font-bold text-blue-600">
+              {property.status === 'rent' 
+                ? `${convertPrice(property.price, currency)} ${lang === "he" ? "/חודש" : "/month"}`
+                : convertPrice(property.price, currency)
+              }
+            </p>
+            
+            {/* Mini currency selector */}
+            <div className="flex flex-wrap gap-1">
+              {(['THB', 'ILS', 'USD', 'EUR'] as Currency[]).map((curr) => (
+                <button
+                  key={curr}
+                  onClick={(e) => {
+                    e.preventDefault(); // Prevent navigating to detail page
+                    setCurrency(curr);
+                  }}
+                  className={`px-2 py-0.5 text-xs rounded transition-colors ${
+                    currency === curr 
+                      ? 'bg-blue-600 text-white' 
+                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  }`}
+                >
+                  {curr === 'THB' ? '฿' : 
+                   curr === 'ILS' ? '₪' : 
+                   curr === 'USD' ? '$' : 
+                   '€'}
+                </button>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </a>

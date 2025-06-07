@@ -24,3 +24,41 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@media (max-width: 768px) {
+  .hide-on-mobile {
+    display: none;
+  }
+  
+  /* Adjust font sizes for mobile */
+  h1.text-3xl {
+    font-size: 1.75rem; /* 28px */
+  }
+  
+  h2.text-2xl {
+    font-size: 1.5rem; /* 24px */
+  }
+  
+  /* Ensure proper padding on mobile */
+  .py-12 {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  
+  /* Make sure images are responsive */
+  .responsive-image {
+    height: auto !important;
+    position: relative !important;
+  }
+  
+  /* Adjust grid spacing on mobile */
+  .gap-8 {
+    gap: 1rem;
+  }
+}
+
+/* Fix for iframe maps on mobile */
+iframe {
+  width: 100%;
+  border: 0;
+}

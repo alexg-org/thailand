@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import PropertyCard from '@/components/PropertyCard';
+import PropertyFilter from '@/components/PropertyFilter';
 import { properties } from '@/data/properties';
 import { useSearchParams } from 'next/navigation';
 
@@ -13,13 +14,44 @@ export default function PropertiesPage() {
   
   const searchParams = useSearchParams();
   const statusFilter = searchParams.get('status');
+  const locationFilter = searchParams.get('location');
+  const bedroomsFilter = searchParams.get('bedrooms');
+  const minPriceFilter = searchParams.get('minPrice');
+  const maxPriceFilter = searchParams.get('maxPrice');
   
   useEffect(() => {
     // Filter properties based on URL parameters
     let filtered = properties;
     
     if (statusFilter === 'sale' || statusFilter === 'rent') {
-      filtered = properties.filter(property => property.status === statusFilter);
+      filtered = filtered.filter(property => property.status === statusFilter);
+    }
+    
+    if (locationFilter) {
+      filtered = filtered.filter(property => 
+        property.location.includes(locationFilter)
+      );
+    }
+    
+    if (bedroomsFilter) {
+      const bedrooms = parseInt(bedroomsFilter);
+      if (!isNaN(bedrooms)) {
+        filtered = filtered.filter(property => property.bedrooms >= bedrooms);
+      }
+    }
+    
+    if (minPriceFilter) {
+      const minPrice = parseInt(minPriceFilter);
+      if (!isNaN(minPrice)) {
+        filtered = filtered.filter(property => property.price >= minPrice);
+      }
+    }
+    
+    if (maxPriceFilter) {
+      const maxPrice = parseInt(maxPriceFilter);
+      if (!isNaN(maxPrice)) {
+        filtered = filtered.filter(property => property.price <= maxPrice);
+      }
     }
     
     setFilteredProperties(filtered);
@@ -30,7 +62,7 @@ export default function PropertiesPage() {
     }, 500);
     
     return () => clearTimeout(timer);
-  }, [statusFilter]);
+  }, [statusFilter, locationFilter, bedroomsFilter, minPriceFilter, maxPriceFilter]);
 
   return (
     <div className="py-12 bg-gray-50 min-h-screen">

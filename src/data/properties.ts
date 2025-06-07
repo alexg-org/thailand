@@ -5,15 +5,36 @@ export const properties: Property[] = [
     id: 1,
     title: 'Luxury Condo in Bangkok',
     titleHe: 'דירת יוקרה בבנגקוק',
-    description: 'A beautiful luxury condominium in the heart of Bangkok with amazing city views.',
-    descriptionHe: 'דירת יוקרה מדהימה בלב בנגקוק עם נוף עירוני מרהיב.',
+    description: 'A beautiful luxury condominium in the heart of Bangkok with amazing city views. This high-end property features modern design, premium finishes, and access to exclusive amenities including a rooftop infinity pool, fitness center, and 24/7 security. Perfect for both investment and living, offering a sophisticated urban lifestyle in one of Bangkok\'s most desirable neighborhoods.',
+    descriptionHe: 'דירת יוקרה מדהימה בלב בנגקוק עם נוף עירוני מרהיב. נכס ברמה גבוהה זה מציע עיצוב מודרני, גימורים יוקרתיים וגישה למתקנים בלעדיים כולל בריכת אינפיניטי על הגג, חדר כושר ואבטחה 24/7. מושלם להשקעה ולמגורים, מציע סגנון חיים אורבני מתוחכם באחת השכונות המבוקשות ביותר בבנגקוק.',
     price: 250000,
     location: 'Bangkok, Thailand',
     locationHe: 'בנגקוק, תאילנד',
     bedrooms: 2,
     bathrooms: 2,
     area: 120,
-    imageUrl: '/images/property-1.jpg',
+    imageUrl: '/images/Luxury_Condo_for_Sale_Bangkok___The_Lakes_Penthouse_in_Bangkok.png',
+    additionalImages: [
+      '/images/property-3.jpg',
+      '/images/property-2.jpg',
+      '/images/property-4.jpg'
+    ],
+    features: [
+      'Swimming Pool',
+      'Fitness Center',
+      'Security 24/7',
+      'Parking Space',
+      'Fully Furnished',
+      'Central Air Conditioning'
+    ],
+    featuresHe: [
+      'בריכת שחייה',
+      'חדר כושר',
+      'אבטחה 24/7',
+      'חניה',
+      'מרוהט במלואו',
+      'מיזוג אוויר מרכזי'
+    ],
     status: 'sale',
     statusHe: 'למכירה'
   },
@@ -21,15 +42,36 @@ export const properties: Property[] = [
     id: 2,
     title: 'Beach Villa in Phuket',
     titleHe: 'וילה על החוף בפוקט',
-    description: 'Stunning beachfront villa in Phuket with private pool and access to the beach.',
-    descriptionHe: 'וילה מדהימה על החוף בפוקט עם בריכה פרטית וגישה לחוף.',
+    description: 'Stunning beachfront villa in Phuket with private pool and direct access to the beach. This exclusive property offers panoramic ocean views, luxury indoor-outdoor living spaces, and a tropical garden. The villa features high ceilings, premium materials, and smart home technology throughout. Ideal for those seeking privacy and luxury in a prime beachfront location.',
+    descriptionHe: 'וילה מדהימה על החוף בפוקט עם בריכה פרטית וגישה ישירה לחוף. נכס בלעדי זה מציע נוף פנורמי לאוקיינוס, מרחבי מגורים יוקרתיים פנימיים-חיצוניים וגן טרופי. הווילה מאופיינת בתקרות גבוהות, חומרים איכותיים וטכנולוגיית בית חכם. אידיאלי למחפשים פרטיות ויוקרה במיקום מרכזי על החוף.',
     price: 500000,
     location: 'Phuket, Thailand',
     locationHe: 'פוקט, תאילנד',
     bedrooms: 4,
     bathrooms: 3,
     area: 250,
-    imageUrl: '/images/property-2.jpg',
+    imageUrl: '/images/Baba_Beach_Club_Phuket_-_Beachfront_5_Bedroom_Residence_Pool_Villas_in_Phuket.png',
+    additionalImages: [
+      '/images/For_Sale__Luxury_Pool_Villa_in_Hang_Dong___Perfect_Homes.png',
+      '/images/property-5.jpg',
+      '/images/property-6.jpg'
+    ],
+    features: [
+      'Private Beach Access',
+      'Infinity Pool',
+      'Tropical Garden',
+      'Smart Home System',
+      'Outdoor Dining Area',
+      'Luxury Kitchen'
+    ],
+    featuresHe: [
+      'גישה פרטית לחוף',
+      'בריכת אינפיניטי',
+      'גן טרופי',
+      'מערכת בית חכם',
+      'אזור אוכל חיצוני',
+      'מטבח יוקרתי'
+    ],
     status: 'sale',
     statusHe: 'למכירה'
   },
@@ -45,7 +87,7 @@ export const properties: Property[] = [
     bedrooms: 2,
     bathrooms: 1,
     area: 90,
-    imageUrl: '/images/property-3.jpg',
+    imageUrl: '/images/BOOK____2BR_Modern_apartment_in_best_area_-_33664977_in_Chiang_Mai__Thailand.png',
     status: 'sale',
     statusHe: 'למכירה'
   },
@@ -61,7 +103,7 @@ export const properties: Property[] = [
     bedrooms: 3,
     bathrooms: 3,
     area: 200,
-    imageUrl: '/images/property-4.jpg',
+    imageUrl: '/images/For_Sale__Luxury_Pool_Villa_in_Hang_Dong___Perfect_Homes.png',
     status: 'sale',
     statusHe: 'למכירה'
   },
@@ -77,7 +119,7 @@ export const properties: Property[] = [
     bedrooms: 1,
     bathrooms: 1,
     area: 65,
-    imageUrl: '/images/property-5.jpg',
+    imageUrl: '/images/Cursor_and_Bangkok_Condo_In_Bangkok__Bangkok__Thailand_For_Rent__15250584_.png',
     status: 'rent',
     statusHe: 'להשכרה'
   },
@@ -93,7 +135,7 @@ export const properties: Property[] = [
     bedrooms: 2,
     bathrooms: 2,
     area: 110,
-    imageUrl: '/images/property-6.jpg',
+    imageUrl: '/images/Anantara_Hua_Hin_Resort_–_Google_hotels.png',
     status: 'sale',
     statusHe: 'למכירה'
   },

@@ -3,6 +3,10 @@
 import { useState, useEffect } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import PropertyCard from '@/components/PropertyCard';
+import PropertyFilter from '@/components/PropertyFilter';
+import HeroSearch from '@/components/HeroSearch';
+import PropertyLocationGrid from '@/components/PropertyLocationGrid';
+import PropertyTestimonials from '@/components/PropertyTestimonials';
 import { properties } from '@/data/properties';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -10,6 +14,17 @@ import Link from 'next/link';
 export default function Home() {
   const { lang } = useLanguage();
   const [isLoading, setIsLoading] = useState(true);
+  const [selectedCountryCode, setSelectedCountryCode] = useState('+972');
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  
+  const countryCodes = [
+    { code: '+972', country: 'IL', flag: '🇮🇱', name: lang === "he" ? "ישראל" : "Israel" },
+    { code: '+66', country: 'TH', flag: '🇹🇭', name: lang === "he" ? "תאילנד" : "Thailand" },
+    { code: '+1', country: 'US', flag: '🇺🇸', name: lang === "he" ? "ארצות הברית" : "USA" },
+    { code: '+44', country: 'GB', flag: '🇬🇧', name: lang === "he" ? "בריטניה" : "UK" },
+    { code: '+33', country: 'FR', flag: '🇫🇷', name: lang === "he" ? "צרפת" : "France" },
+    { code: '+49', country: 'DE', flag: '🇩🇪', name: lang === "he" ? "גרמניה" : "Germany" },
+  ];
   
   useEffect(() => {
     // Simulate loading
@@ -20,38 +35,52 @@ export default function Home() {
     return () => clearTimeout(timer);
   }, []);
 
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (isDropdownOpen) {
+        setIsDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener('click', handleClickOutside);
+    return () => document.removeEventListener('click', handleClickOutside);
+  }, [isDropdownOpen]);
+
   return (
     <div className="flex flex-col w-full">
       {/* Hero Section */}
       <section className="relative h-[70vh] w-full">
-        <div className="absolute inset-0 bg-black/50 z-10"></div>
+        <div className="absolute inset-0 bg-black/20 z-10"></div>
         <Image
-          src="/images/hero.jpg"
+          src="/images/Cursor_and_תכירו_את_המלון_הכי_מפנק_בפוקט_-_למטייל.png"
           alt="Thailand Real Estate"
           fill
           priority
           className="object-cover"
         />
-        <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col justify-center">
-          <h1 
-            className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4"
-            dir={lang === "he" ? "rtl" : "ltr"}
-          >
-            {lang === "he" 
-              ? "נכסי יוקרה בתאילנד" 
-              : "Luxury Real Estate in Thailand"
-            }
-          </h1>
-          <p 
-            className="text-xl md:text-2xl text-white mb-8 max-w-2xl"
-            dir={lang === "he" ? "rtl" : "ltr"}
-          >
-            {lang === "he"
-              ? "מצא את נכס החלומות שלך בתאילנד - דירות יוקרה, וילות ובתים למכירה ולהשכרה במיקומים הטובים ביותר"
-              : "Find your dream property in Thailand - luxury condos, villas, and homes for sale and rent in the best locations"
-            }
-          </p>
-          <div className="flex flex-wrap gap-4" dir={lang === "he" ? "rtl" : "ltr"}>
+        <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col justify-center items-center">
+          <div className="bg-black/30 px-5 py-3 rounded-lg">
+            <h1 
+              className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 text-center drop-shadow-lg"
+              dir={lang === "he" ? "rtl" : "ltr"}
+            >
+              {lang === "he" 
+                ? "נכסי יוקרה בתאילנד" 
+                : "Luxury Real Estate in Thailand"
+              }
+            </h1>
+            <p 
+              className="text-xl md:text-2xl text-white mb-2 max-w-2xl mx-auto text-center drop-shadow-lg"
+              dir={lang === "he" ? "rtl" : "ltr"}
+            >
+              {lang === "he"
+                ? "מצא את נכס החלומות שלך בתאילנד - דירות יוקרה, וילות ובתים למכירה ולהשכרה במיקומים הטובים ביותר"
+                : "Find your dream property in Thailand - luxury condos, villas, and homes for sale and rent in the best locations"
+              }
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-4 justify-center" dir={lang === "he" ? "rtl" : "ltr"}>
             <Link
               href="/properties?status=sale"
               className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium text-lg transition-colors"
@@ -67,6 +96,11 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+
+
+      {/* Hero Search Section */}
+      <HeroSearch />
 
       {/* Featured Properties Section */}
       <section className="py-16 bg-gray-50">
@@ -181,145 +215,342 @@ export default function Home() {
       {/* Investment Opportunities Section */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row md:items-center md:space-x-12" dir={lang === "he" ? "rtl" : "ltr"}>
-            <div className="md:w-1/2 mb-8 md:mb-0">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                {lang === "he" ? "למה להשקיע בנדל\"ן בתאילנד?" : "Why Invest in Thailand Real Estate?"}
-              </h2>
-              <p className="text-gray-600 mb-6">
-                {lang === "he" 
-                  ? "תאילנד מציעה הזדמנויות השקעה יוצאות דופן עם עלייה של 18% במחירי הנדל\"ן בעשור האחרון. מסף כניסה נמוך, תיירות שנתית ערה, והטבות מס אטרקטיביות הופכים את תאילנד ליעד אידיאלי למשקיעי נדל\"ן." 
-                  : "Thailand offers exceptional investment opportunities with an 18% increase in property prices over the last decade. Low entry threshold, year-round tourism, and attractive tax benefits make Thailand an ideal destination for real estate investors."
+          <h2 
+            className="text-3xl font-bold text-gray-900 mb-8 text-center"
+            dir={lang === "he" ? "rtl" : "ltr"}
+          >
+            {lang === "he" ? "למה להשקיע בנדל\"ן בתאילנד?" : "Why Invest in Thailand Real Estate?"}
+          </h2>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            <div dir={lang === "he" ? "rtl" : "ltr"}>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                {lang === "he" ? "הזדמנויות השקעה עם תשואות גבוהות" : "Investment Opportunities with High Returns"}
+              </h3>
+              <p className="text-lg text-gray-700 mb-4">
+                {lang === "he"
+                  ? "תאילנד מציעה שילוב ייחודי של מחירים תחרותיים, צמיחה כלכלית יציבה ושוק תיירות משגשג, מה שהופך אותה ליעד אטרקטיבי למשקיעי נדל\"ן."
+                  : "Thailand offers a unique combination of competitive prices, stable economic growth, and a thriving tourism market, making it an attractive destination for real estate investors."
                 }
               </p>
+              <div className="space-y-4 mb-6">
+                <div className="flex items-start gap-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <p className="text-gray-700">
+                    {lang === "he" ? "תשואות שכירות של 5-8% בממוצע" : "Rental yields averaging 5-8%"}
+                  </p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <p className="text-gray-700">
+                    {lang === "he" ? "צמיחת ערך הנכסים בשיעור של 3-6% בשנה" : "Property value appreciation of 3-6% annually"}
+                  </p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <p className="text-gray-700">
+                    {lang === "he" ? "עלויות תחזוקה נמוכות יחסית" : "Relatively low maintenance costs"}
+                  </p>
+                </div>
+              </div>
               <Link
                 href="/why-invest"
-                className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium text-lg transition-colors"
+                className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors"
               >
-                {lang === "he" ? "גלה למה להשקיע בתאילנד" : "Discover Why Invest in Thailand"}
+                {lang === "he" ? "מידע נוסף על השקעות בתאילנד" : "Learn More About Thailand Investments"}
               </Link>
             </div>
-            <div className="md:w-1/2">
-              <div className="relative h-80 rounded-xl overflow-hidden shadow-lg">
-                <Image
-                  src="/images/pexels-jimmy-teoh-294331-2402000.jpg"
-                  alt="Thailand Investment Property"
-                  fill
-                  className="object-cover"
-                />
-              </div>
+            
+            <div className="relative h-96 rounded-xl overflow-hidden">
+              <Image
+                src="/images/pexels-jimmy-teoh-294331-2402000.jpg"
+                alt={lang === "he" ? "השקעות נדל\"ן בתאילנד" : "Thailand Real Estate Investments"}
+                fill
+                className="object-cover"
+              />
             </div>
           </div>
         </div>
       </section>
       
-      {/* Property Types Section */}
+      {/* Testimonials Section */}
       <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <PropertyTestimonials />
+        </div>
+      </section>
+      
+      {/* FAQ Section */}
+      <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 
             className="text-3xl font-bold text-gray-900 mb-8 text-center"
             dir={lang === "he" ? "rtl" : "ltr"}
           >
-            {lang === "he" ? "סוגי נכסים בתאילנד" : "Property Types in Thailand"}
+            {lang === "he" ? "שאלות נפוצות" : "Frequently Asked Questions"}
           </h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-gray-50 rounded-xl overflow-hidden shadow-sm">
-              <div className="relative h-48">
-                <Image
-                  src="/images/Luxury-Condos.jpg"
-                  alt={lang === "he" ? "דירות יוקרה" : "Luxury Condos"}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-2">
-                  {lang === "he" ? "דירות יוקרה" : "Luxury Condos"}
-                </h3>
-                <p className="text-gray-600" dir={lang === "he" ? "rtl" : "ltr"}>
-                  {lang === "he"
-                    ? "דירות יוקרה במגדלים מודרניים עם נוף מרהיב ומתקנים מפנקים"
-                    : "Luxury apartments in modern towers with stunning views and premium amenities"
-                  }
-                </p>
-              </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8" dir={lang === "he" ? "rtl" : "ltr"}>
+            <div className="bg-white rounded-xl shadow-sm p-6">
+              <h3 className="text-xl font-bold text-gray-900 mb-3">
+                {lang === "he" ? "האם זרים יכולים לרכוש נדל\"ן בתאילנד?" : "Can foreigners purchase real estate in Thailand?"}
+              </h3>
+              <p className="text-gray-700">
+                {lang === "he"
+                  ? "זרים יכולים לרכוש דירות בבעלות מלאה, אך לא יכולים לרכוש קרקע באופן ישיר. עבור בתים ווילות, קיימות מספר אפשרויות חוקיות כמו חכירה ארוכת טווח או הקמת חברה תאילנדית."
+                  : "Foreigners can own condominiums outright, but cannot directly own land. For houses and villas, there are several legal options such as long-term leases or setting up a Thai company."
+                }
+              </p>
             </div>
             
-            <div className="bg-gray-50 rounded-xl overflow-hidden shadow-sm">
-              <div className="relative h-48">
-                <Image
-                  src="/images/thailand-vila.jpg"
-                  alt={lang === "he" ? "וילות חוף" : "Beach Villas"}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-2">
-                  {lang === "he" ? "וילות חוף" : "Beach Villas"}
-                </h3>
-                <p className="text-gray-600" dir={lang === "he" ? "rtl" : "ltr"}>
-                  {lang === "he"
-                    ? "וילות מפוארות לצד החוף עם גישה ישירה לים וגינות טרופיות"
-                    : "Luxurious villas by the beach with direct sea access and tropical gardens"
-                  }
-                </p>
-              </div>
+            <div className="bg-white rounded-xl shadow-sm p-6">
+              <h3 className="text-xl font-bold text-gray-900 mb-3">
+                {lang === "he" ? "מהם המיסים הכרוכים ברכישת נדל\"ן בתאילנד?" : "What taxes are involved in purchasing property in Thailand?"}
+              </h3>
+              <p className="text-gray-700">
+                {lang === "he"
+                  ? "המיסים העיקריים כוללים מס העברה (2%), מס בולים (0.5%), מס עסקים ספציפי (3.3% אם נמכר תוך 5 שנים), ועמלות רישום (1%). בדרך כלל, המוכר והקונה מחלקים את העלויות הללו."
+                  : "The main taxes include transfer tax (2%), stamp duty (0.5%), specific business tax (3.3% if sold within 5 years), and registration fees (1%). Typically, the seller and buyer split these costs."
+                }
+              </p>
             </div>
             
-            <div className="bg-gray-50 rounded-xl overflow-hidden shadow-sm">
-              <div className="relative h-48">
-                <Image
-                  src="/images/Thailand-Business-Properties.jpg"
-                  alt={lang === "he" ? "נכסים מסחריים" : "Commercial Properties"}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-2">
-                  {lang === "he" ? "נכסים מסחריים" : "Commercial Properties"}
-                </h3>
-                <p className="text-gray-600" dir={lang === "he" ? "rtl" : "ltr"}>
-                  {lang === "he"
-                    ? "משרדים, חנויות ומרכזי מסחר במיקומים אסטרטגיים ברחבי תאילנד"
-                    : "Offices, shops, and commercial centers in strategic locations throughout Thailand"
-                  }
-                </p>
-              </div>
+            <div className="bg-white rounded-xl shadow-sm p-6">
+              <h3 className="text-xl font-bold text-gray-900 mb-3">
+                {lang === "he" ? "האם אתם מציעים שירותי ניהול נכסים?" : "Do you offer property management services?"}
+              </h3>
+              <p className="text-gray-700">
+                {lang === "he"
+                  ? "כן, אנו מציעים שירותי ניהול נכסים מקיפים לבעלי נכסים שאינם מתגוררים בתאילנד. השירותים כוללים תחזוקה, טיפול בשוכרים, גביית שכר דירה, ודיווחים חודשיים."
+                  : "Yes, we offer comprehensive property management services for owners who don't reside in Thailand. Services include maintenance, tenant handling, rent collection, and monthly reporting."
+                }
+              </p>
             </div>
-          </div>
-          
-          <div className="mt-12 text-center">
-            <Link
-              href="/properties"
-              className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium text-lg transition-colors"
-            >
-              {lang === "he" ? "צפה בכל הנכסים" : "View All Properties"}
-            </Link>
+            
+            <div className="bg-white rounded-xl shadow-sm p-6">
+              <h3 className="text-xl font-bold text-gray-900 mb-3">
+                {lang === "he" ? "מהו תהליך הרכישה הטיפוסי בתאילנד?" : "What is the typical purchase process in Thailand?"}
+              </h3>
+              <p className="text-gray-700">
+                {lang === "he"
+                  ? "התהליך כולל מציאת נכס, משא ומתן, חתימה על הסכם הזמנה עם הפקדת מקדמה (בד\"כ 10%), בדיקת נאותות, חתימה על חוזה סופי, ותשלום יתרת הסכום בעת העברת הבעלות. התהליך בדרך כלל אורך 30-60 יום."
+                  : "The process includes finding a property, negotiation, signing a reservation agreement with a deposit (usually 10%), due diligence, signing the final contract, and paying the balance upon transfer of ownership. The process typically takes 30-60 days."
+                }
+              </p>
+            </div>
           </div>
         </div>
       </section>
       
-      {/* Call to Action Section */}
-      <section className="py-16 bg-blue-600 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-4">
-            {lang === "he" ? "מוכנים למצוא את הנכס המושלם?" : "Ready to Find Your Perfect Property?"}
+      {/* Contact Section */}
+      <section id="contact" className="py-16 bg-blue-600 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold mb-4 text-center">
+            {lang === "he" ? "?מוכנים למצוא את הנכס המושלם" : "Ready to Find Your Perfect Property?"}
           </h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto">
+          <p className="text-xl mb-8 max-w-2xl mx-auto text-center">
             {lang === "he"
               ? "צור קשר עוד היום כדי לקבל ייעוץ מהמומחים שלנו ולמצוא את נכס החלומות שלך בתאילנד"
               : "Contact us today to get expert advice and find your dream property in Thailand"
             }
           </p>
-          <Link
-            href="/contact"
-            className="inline-block bg-white text-blue-600 px-6 py-3 rounded-lg font-medium text-lg transition-colors hover:bg-gray-100"
-          >
-            {lang === "he" ? "צור קשר עכשיו" : "Contact Us Now"}
-          </Link>
+          
+          <div className="bg-white rounded-xl shadow-lg p-8 mt-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {/* Contact Form */}
+              <div dir={lang === "he" ? "rtl" : "ltr"}>
+                <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                  {lang === "he" ? "צור קשר" : "Contact Us"}
+                </h3>
+                
+                <form className="space-y-4">
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                      {lang === "he" ? "שם מלא" : "Full Name"}
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900"
+                      required
+                    />
+                  </div>
+                  
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                      {lang === "he" ? "דוא\"ל" : "Email"}
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900"
+                      required
+                    />
+                  </div>
+                  
+                  <div>
+                    <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
+                      {lang === "he" ? "טלפון" : "Phone"}
+                    </label>
+                    <div className={`flex ${lang === "he" ? "flex-row-reverse" : ""}`}>
+                      {/* Custom Country Code Dropdown */}
+                      <div className="relative" style={{ minWidth: '140px' }}>
+                        <button
+                          type="button"
+                          onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                          className={`w-full px-3 py-3 border border-gray-300 ${lang === "he" ? "rounded-r-md" : "rounded-l-md"} bg-white text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 flex items-center justify-between h-[44px]`}
+                          style={{ color: '#1f2937', backgroundColor: '#ffffff' }}
+                        >
+                          <span>
+                            {countryCodes.find(c => c.code === selectedCountryCode)?.flag} {selectedCountryCode}
+                          </span>
+                          <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                          </svg>
+                        </button>
+                        
+                        {isDropdownOpen && (
+                          <div className="absolute top-full left-0 w-full bg-white border border-gray-300 rounded-md shadow-lg z-50 max-h-60 overflow-y-auto">
+                            {countryCodes.map((country) => (
+                              <button
+                                key={country.code}
+                                type="button"
+                                onClick={() => {
+                                  setSelectedCountryCode(country.code);
+                                  setIsDropdownOpen(false);
+                                }}
+                                className="w-full px-3 py-2 text-left hover:bg-gray-100 text-gray-900 text-sm"
+                              >
+                                {country.flag} {country.code} ({country.name})
+                              </button>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                      <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        placeholder={lang === "he" ? "מספר טלפון" : "Phone number"}
+                        className={`flex-1 px-3 py-3 border border-gray-300 ${lang === "he" ? "border-r-0 rounded-l-md" : "border-l-0 rounded-r-md"} focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 h-[44px]`}
+                      />
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
+                      {lang === "he" ? "נושא" : "Subject"}
+                    </label>
+                    <select
+                      id="subject"
+                      name="subject"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900"
+                      required
+                    >
+                      <option value="">
+                        {lang === "he" ? "בחר נושא" : "Select a subject"}
+                      </option>
+                      <option value="property-inquiry">
+                        {lang === "he" ? "שאלה על נכס" : "Property Inquiry"}
+                      </option>
+                      <option value="investment">
+                        {lang === "he" ? "ייעוץ השקעות" : "Investment Advice"}
+                      </option>
+                      <option value="viewing">
+                        {lang === "he" ? "תיאום ביקור" : "Schedule Viewing"}
+                      </option>
+                      <option value="other">
+                        {lang === "he" ? "אחר" : "Other"}
+                      </option>
+                    </select>
+                  </div>
+                  
+                  <div>
+                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+                      {lang === "he" ? "הודעה" : "Message"}
+                    </label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      rows={4}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900"
+                      required
+                    ></textarea>
+                  </div>
+                  
+                  <button
+                    type="submit"
+                    className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors"
+                  >
+                    {lang === "he" ? "שלח הודעה" : "Send Message"}
+                  </button>
+                </form>
+              </div>
+              
+              {/* Contact Information */}
+              <div dir={lang === "he" ? "rtl" : "ltr"}>
+                <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                  {lang === "he" ? "פרטי התקשרות" : "Contact Information"}
+                </h3>
+                
+                <div className="space-y-6">
+                  <div>
+                    <h4 className="text-lg font-semibold text-gray-900 mb-2">
+                      {lang === "he" ? "המשרד הראשי בבנגקוק" : "Bangkok Main Office"}
+                    </h4>
+                    <p className="text-gray-700 mb-1">
+                      {lang === "he" ? "123 סוקומוויט רואד, ואטאנה, בנגקוק 10110" : "123 Sukhumvit Road, Watthana, Bangkok 10110"}
+                    </p>
+                    <p className="text-gray-700 mb-1">
+                      <span className="font-medium">{lang === "he" ? "טלפון: " : "Phone: "}</span>
+                      +66 2 123 4567
+                    </p>
+                    <p className="text-gray-700 mb-1">
+                      <span className="font-medium">{lang === "he" ? "דוא\"ל: " : "Email: "}</span>
+                      bangkok@thailandestates.com
+                    </p>
+                  </div>
+                  
+                  <div>
+                    <h4 className="text-lg font-semibold text-gray-900 mb-2">
+                      {lang === "he" ? "משרד פוקט" : "Phuket Office"}
+                    </h4>
+                    <p className="text-gray-700 mb-1">
+                      {lang === "he" ? "456 טלנג רואד, פאטונג, פוקט 83150" : "456 Thaland Road, Patong, Phuket 83150"}
+                    </p>
+                    <p className="text-gray-700 mb-1">
+                      <span className="font-medium">{lang === "he" ? "טלפון: " : "Phone: "}</span>
+                      +66 76 123 4567
+                    </p>
+                    <p className="text-gray-700 mb-1">
+                      <span className="font-medium">{lang === "he" ? "דוא\"ל: " : "Email: "}</span>
+                      phuket@thailandestates.com
+                    </p>
+                  </div>
+                  
+                  <div className="rounded-lg overflow-hidden h-48 mt-6">
+                    <iframe 
+                      src="https://maps.google.com/maps?q=sukhumvit+road+bangkok&t=&z=13&ie=UTF8&iwloc=&output=embed" 
+                      width="100%" 
+                      height="100%" 
+                      style={{ border: 0 }} 
+                      allowFullScreen 
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                    ></iframe>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </div>

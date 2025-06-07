@@ -11,6 +11,9 @@ export interface Property {
   bathrooms: number;
   area: number;
   imageUrl: string;
+  additionalImages?: string[];
+  features?: string[];
+  featuresHe?: string[];
   status: 'sale' | 'rent';
   statusHe: string;
 }
