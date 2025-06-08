@@ -1,7 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  env: {
+    PORT: '3000'
+  },
+  poweredByHeader: false,
+  reactStrictMode: true,
 };
 
 export default nextConfig;
