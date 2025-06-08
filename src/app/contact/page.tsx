@@ -2,15 +2,7 @@
 
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useState } from 'react';
-import Image from                       <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        required
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 bg-gray-50"
-                      />ge';
+import Image from 'next/image';
 
 export default function ContactPage() {
   const { lang } = useLanguage();
