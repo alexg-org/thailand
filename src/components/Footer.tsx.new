@@ -80,15 +80,15 @@ export default function Footer() {
                 <h4 className="text-sm font-semibold text-white mb-1">{lang === "he" ? "משרד תל אביב" : "Tel Aviv Office"}</h4>
                 <ul className="text-white text-sm space-y-1">
                   <li>
-                    <span className="font-medium">{lang === "he" ? "כתובת: " : "Address: "}</span>
+                    <span className="font-medium text-primary-gold/80">{lang === "he" ? "כתובת: " : "Address: "}</span>
                     {lang === "he" ? "דיזנגוף 100, תל אביב, ישראל" : "Dizengoff 100, Tel Aviv, Israel"}
                   </li>
                   <li>
-                    <span className="font-medium">{lang === "he" ? "טלפון: " : "Phone: "}</span>
+                    <span className="font-medium text-primary-gold/80">{lang === "he" ? "טלפון: " : "Phone: "}</span>
                     +972 3 555 1234
                   </li>
                   <li>
-                    <span className="font-medium">{lang === "he" ? "דוא\"ל: " : "Email: "}</span>
+                    <span className="font-medium text-primary-gold/80">{lang === "he" ? "דוא\"ל: " : "Email: "}</span>
                     telaviv@thailand-estates.com
                   </li>
                 </ul>
@@ -98,15 +98,15 @@ export default function Footer() {
                 <h4 className="text-sm font-semibold text-white mb-1">{lang === "he" ? "משרד פוקט" : "Phuket Office"}</h4>
                 <ul className="text-white text-sm space-y-1">
                   <li>
-                    <span className="font-medium">{lang === "he" ? "כתובת: " : "Address: "}</span>
+                    <span className="font-medium text-primary-gold/80">{lang === "he" ? "כתובת: " : "Address: "}</span>
                     {lang === "he" ? "456 טלנג רואד, פאטונג, פוקט 83150" : "456 Thalang Road, Patong, Phuket 83150"}
                   </li>
                   <li>
-                    <span className="font-medium">{lang === "he" ? "טלפון: " : "Phone: "}</span>
+                    <span className="font-medium text-primary-gold/80">{lang === "he" ? "טלפון: " : "Phone: "}</span>
                     +66 76 123 4567
                   </li>
                   <li>
-                    <span className="font-medium">{lang === "he" ? "דוא\"ל: " : "Email: "}</span>
+                    <span className="font-medium text-primary-gold/80">{lang === "he" ? "דוא\"ל: " : "Email: "}</span>
                     phuket@thailandestates.com
                   </li>
                 </ul>

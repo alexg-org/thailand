@@ -54,16 +54,15 @@ export default function PropertyDetailClient({ property }: PropertyDetailClientP
   return (
     <div className="py-12 bg-gray-50 min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-8">
-          <Link
-            href="/properties"
-            className="text-blue-600 hover:underline flex items-center gap-2"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-            </svg>
-            {lang === "he" ? "חזרה לכל הנכסים" : "Back to all properties"}
-          </Link>
+        <div className="mb-8">            <Link
+              href="/properties"
+              className="text-primary-gold hover:underline flex items-center gap-2"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+              </svg>
+              {lang === "he" ? "חזרה לכל הנכסים" : "Back to all properties"}
+            </Link>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -74,7 +73,7 @@ export default function PropertyDetailClient({ property }: PropertyDetailClientP
               <h1 className="text-3xl font-bold text-gray-900">
                 {lang === "he" ? property.titleHe : property.title}
               </h1>
-              <div className="bg-blue-600 text-white px-4 py-2 rounded-full text-md font-medium">
+              <div className="bg-primary-gold text-white px-4 py-2 rounded-full text-md font-medium">
                 {lang === "he" ? property.statusHe : property.status}
               </div>
             </div>
@@ -121,7 +120,7 @@ export default function PropertyDetailClient({ property }: PropertyDetailClientP
           <div className="space-y-6">
             {/* Price Card */}
             <div className="bg-white rounded-xl shadow-md p-6">
-              <h3 className="text-2xl font-bold text-blue-600 mb-2">
+              <h3 className="text-2xl font-bold text-primary-gold mb-2">
                 {property.status === 'rent' 
                   ? `${convertPrice(property.price, currency)} ${lang === "he" ? "/חודש" : "/month"}`
                   : convertPrice(property.price, currency)
@@ -143,7 +142,7 @@ export default function PropertyDetailClient({ property }: PropertyDetailClientP
                       onClick={() => handleCurrencyChange(curr)}
                       className={`px-3 py-1.5 text-sm rounded-md transition-colors ${
                         currency === curr 
-                          ? 'bg-blue-600 text-white' 
+                          ? 'bg-primary-gold text-white' 
                           : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                       }`}
                     >
@@ -166,7 +165,7 @@ export default function PropertyDetailClient({ property }: PropertyDetailClientP
               <div className="pt-4 border-t border-gray-200">
                 <Link
                   href="/contact"
-                  className="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center px-6 py-3 rounded-lg font-medium text-lg transition-colors"
+                  className="block w-full bg-primary-gold hover:bg-primary-gold/80 text-white text-center px-6 py-3 rounded-lg font-medium text-lg transition-colors"
                 >
                   {lang === "he" ? "יצירת קשר" : "Contact Agent"}
                 </Link>

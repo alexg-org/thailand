@@ -1,15 +1,18 @@
 @import "tailwindcss";
 
 :root {
+  /* Thailand-inspired color palette */
+  --primary-gold: #d4af37;
+  --primary-emerald: #10b981;
+  --primary-azure: #0ea5e9;
+  --warm-sand: #f7f3e9;
+  --deep-ocean: #1e293b;
+  --coral-red: #ef4444;
+  --bamboo-green: #22c55e;
+  --sunset-orange: #f97316;
+  
   --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --foreground: #1e293b;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,7 +25,82 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+}
+
+/* Custom gradient backgrounds */
+.gradient-thailand {
+  background: linear-gradient(135deg, #10b981 0%, #0ea5e9 50%, #d4af37 100%);
+}
+
+.gradient-sunset {
+  background: linear-gradient(135deg, #f97316 0%, #ef4444 50%, #d4af37 100%);
+}
+
+.gradient-ocean {
+  background: linear-gradient(135deg, #1e293b 0%, #0ea5e9 100%);
+}
+
+/* Background colors */
+.bg-warm-sand {
+  background-color: #f7f3e9;
+}
+
+.bg-primary-gold {
+  background-color: #d4af37;
+}
+
+.bg-emerald {
+  background-color: #10b981;
+}
+
+.bg-azure {
+  background-color: #0ea5e9;
+}
+
+/* Text colors */
+.text-deep-ocean {
+  color: #1e293b;
+}
+
+.text-light-ocean {
+  color: #64748b;
+}
+
+.text-primary-gold {
+  color: #d4af37;
+}
+
+.text-warm-sand {
+  color: #f7f3e9;
+}
+
+.text-emerald {
+  color: #10b981;
+}
+
+.text-azure {
+  color: #0ea5e9;
+}
+
+.text-primary-gold {
+  color: #d4af37;
+}
+
+.bg-primary-emerald {
+  background-color: #10b981;
+}
+
+.bg-primary-azure {
+  background-color: #0ea5e9;
+}
+
+.hover\:bg-primary-emerald:hover {
+  background-color: #059669;
+}
+
+.hover\:bg-primary-azure:hover {
+  background-color: #0284c7;
 }
 
 @media (max-width: 768px) {
@@ -61,4 +139,156 @@ body {
 iframe {
   width: 100%;
   border: 0;
+}
+
+/* Additional color utilities for Thailand theme */
+.border-primary-gold\/20 {
+  border-color: rgba(212, 175, 55, 0.2);
+}
+
+.border-primary-gold\/30 {
+  border-color: rgba(212, 175, 55, 0.3);
+}
+
+.border-azure\/20 {
+  border-color: rgba(14, 165, 233, 0.2);
+}
+
+.border-azure\/30 {
+  border-color: rgba(14, 165, 233, 0.3);
+}
+
+.border-emerald\/30 {
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+/* Background with opacity */
+.bg-warm-sand\/5 {
+  background-color: rgba(247, 243, 233, 0.05);
+}
+
+.bg-warm-sand\/10 {
+  background-color: rgba(247, 243, 233, 0.1);
+}
+
+.bg-warm-sand\/20 {
+  background-color: rgba(247, 243, 233, 0.2);
+}
+
+.bg-warm-sand\/90 {
+  background-color: rgba(247, 243, 233, 0.9);
+}
+
+.bg-warm-sand\/95 {
+  background-color: rgba(247, 243, 233, 0.95);
+}
+
+.bg-white\/90 {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.bg-white\/95 {
+  background-color: rgba(255, 255, 255, 0.95);
+}
+
+/* Text with opacity */
+.text-deep-ocean\/70 {
+  color: rgba(30, 41, 59, 0.7);
+}
+
+.text-deep-ocean\/80 {
+  color: rgba(30, 41, 59, 0.8);
+}
+
+.text-light-ocean\/70 {
+  color: rgba(100, 116, 139, 0.7);
+}
+
+.text-light-ocean\/80 {
+  color: rgba(100, 116, 139, 0.8);
+}
+
+.text-warm-sand\/90 {
+  color: rgba(247, 243, 233, 0.9);
+}
+
+.text-warm-sand\/80 {
+  color: rgba(247, 243, 233, 0.8);
+}
+
+.text-warm-sand\/70 {
+  color: rgba(247, 243, 233, 0.7);
+}
+
+.text-primary-gold\/80 {
+  color: rgba(212, 175, 55, 0.8);
+}
+
+/* Gradient backgrounds with opacity */
+.from-primary-gold\/20 {
+  --tw-gradient-from: rgba(212, 175, 55, 0.2);
+}
+
+.to-sunset-orange\/20 {
+  --tw-gradient-to: rgba(249, 115, 22, 0.2);
+}
+
+.from-azure\/20 {
+  --tw-gradient-from: rgba(14, 165, 233, 0.2);
+}
+
+.to-emerald\/20 {
+  --tw-gradient-to: rgba(16, 185, 129, 0.2);
+}
+
+.from-emerald\/20 {
+  --tw-gradient-from: rgba(16, 185, 129, 0.2);
+}
+
+.to-bamboo-green\/20 {
+  --tw-gradient-to: rgba(34, 197, 94, 0.2);
+}
+
+.from-azure\/20 {
+  --tw-gradient-from: rgba(14, 165, 233, 0.2);
+}
+
+.to-emerald\/10 {
+  --tw-gradient-to: rgba(16, 185, 129, 0.1);
+}
+
+.from-deep-ocean\/30 {
+  --tw-gradient-from: rgba(30, 41, 59, 0.3);
+}
+
+.to-primary-gold\/20 {
+  --tw-gradient-to: rgba(212, 175, 55, 0.2);
+}
+
+.from-deep-ocean\/40 {
+  --tw-gradient-from: rgba(30, 41, 59, 0.4);
+}
+
+.to-primary-gold\/30 {
+  --tw-gradient-to: rgba(212, 175, 55, 0.3);
+}
+
+/* Fix text visibility issues */
+* {
+  color: inherit;
+}
+
+/* Ensure dark text on light backgrounds */
+.bg-white, .bg-warm-sand, .bg-warm-sand\/90, .bg-warm-sand\/95, .bg-white\/90, .bg-white\/95 {
+  color: #1e293b !important;
+}
+
+/* Ensure light text on dark backgrounds */
+.bg-deep-ocean, .gradient-ocean, .gradient-thailand {
+  color: #f7f3e9 !important;
+}
+
+/* Override any conflicting text colors */
+.text-inherit {
+  color: inherit !important;
 }

@@ -71,7 +71,7 @@ export default function AboutPage() {
               </div>
               <div className="p-6 text-center">
                 <h3 className="text-xl font-bold text-gray-900 mb-1">John Smith</h3>
-                <p className="text-blue-600 mb-3">{lang === "he" ? "מנכ\"ל ומייסד" : "CEO & Founder"}</p>
+                <p className="text-primary-gold mb-3">{lang === "he" ? "מנכ\"ל ומייסד" : "CEO & Founder"}</p>
                 <p className="text-gray-600">
                   {lang === "he"
                     ? "ג'ון הוא יזם ומומחה נדל\"ן עם למעלה מ-20 שנות ניסיון בשוק התאילנדי."
@@ -92,7 +92,7 @@ export default function AboutPage() {
               </div>
               <div className="p-6 text-center">
                 <h3 className="text-xl font-bold text-gray-900 mb-1">Sarah Johnson</h3>
-                <p className="text-blue-600 mb-3">{lang === "he" ? "מנהלת מכירות" : "Sales Director"}</p>
+                <p className="text-primary-gold mb-3">{lang === "he" ? "מנהלת מכירות" : "Sales Director"}</p>
                 <p className="text-gray-600">
                   {lang === "he"
                     ? "שרה מתמחה בנכסי יוקרה ובעלת רשת קשרים נרחבת בתעשיית הנדל\"ן התאילנדית."
@@ -113,7 +113,7 @@ export default function AboutPage() {
               </div>
               <div className="p-6 text-center">
                 <h3 className="text-xl font-bold text-gray-900 mb-1">Chai Natakorn</h3>
-                <p className="text-blue-600 mb-3">{lang === "he" ? "יועץ משפטי" : "Legal Advisor"}</p>
+                <p className="text-primary-gold mb-3">{lang === "he" ? "יועץ משפטי" : "Legal Advisor"}</p>
                 <p className="text-gray-600">
                   {lang === "he"
                     ? "צ'אי הוא עורך דין תאילנדי מנוסה המתמחה בחוקי נדל\"ן ועסקאות בינלאומיות."
@@ -170,8 +170,8 @@ export default function AboutPage() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="flex gap-4">
-              <div className="bg-blue-100 p-3 h-fit rounded-full">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <div className="bg-primary-gold/10 p-3 h-fit rounded-full">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-primary-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
               </div>
@@ -189,8 +189,8 @@ export default function AboutPage() {
             </div>
             
             <div className="flex gap-4">
-              <div className="bg-blue-100 p-3 h-fit rounded-full">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <div className="bg-primary-gold/10 p-3 h-fit rounded-full">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-primary-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
               </div>
@@ -208,8 +208,8 @@ export default function AboutPage() {
             </div>
             
             <div className="flex gap-4">
-              <div className="bg-blue-100 p-3 h-fit rounded-full">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <div className="bg-primary-gold/10 p-3 h-fit rounded-full">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-primary-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
@@ -227,8 +227,8 @@ export default function AboutPage() {
             </div>
             
             <div className="flex gap-4">
-              <div className="bg-blue-100 p-3 h-fit rounded-full">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <div className="bg-primary-gold/10 p-3 h-fit rounded-full">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-primary-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
                 </svg>
               </div>

@@ -286,7 +286,7 @@ export default function BlogPage() {
                 </p>
                 <Link
                   href={`/blog/${post.slug}`}
-                  className="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center"
+                  className="text-primary-gold hover:text-primary-gold/80 font-medium inline-flex items-center"
                 >
                   {lang === "he" ? "קרא עוד" : "Read more"}
                   <svg xmlns="http://www.w3.org/2000/svg" className={`h-5 w-5 ${lang === "he" ? "mr-1 transform rotate-180" : "ml-1"}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -299,7 +299,7 @@ export default function BlogPage() {
         </div>
         
         {/* Newsletter Signup */}
-        <div className="bg-blue-600 text-white rounded-xl p-8 mt-16">
+        <div className="bg-primary-gold text-white rounded-xl p-8 mt-16">
           <div className="md:flex items-center justify-between" dir={lang === "he" ? "rtl" : "ltr"}>
             <div className="md:w-1/2 mb-6 md:mb-0">
               <h2 className="text-2xl font-bold mb-2">
@@ -322,7 +322,7 @@ export default function BlogPage() {
                 />
                 <button
                   type="submit"
-                  className="bg-white text-blue-600 hover:bg-gray-100 px-6 py-2 rounded-lg font-medium transition-colors"
+                  className="bg-white text-primary-gold hover:bg-gray-100 px-6 py-2 rounded-lg font-medium transition-colors"
                 >
                   {lang === "he" ? "הרשמה" : "Subscribe"}
                 </button>

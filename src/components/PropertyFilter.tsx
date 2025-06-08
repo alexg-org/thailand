@@ -50,7 +50,7 @@ export default function PropertyFilter() {
             <select
               value={status}
               onChange={(e) => setStatus(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-gold"
             >
               <option value="">{lang === "he" ? "כל הנכסים" : "All Properties"}</option>
               <option value="sale">{lang === "he" ? "למכירה" : "For Sale"}</option>
@@ -65,7 +65,7 @@ export default function PropertyFilter() {
             <select
               value={location}
               onChange={(e) => setLocation(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-gold"
             >
               <option value="">{lang === "he" ? "כל המיקומים" : "All Locations"}</option>
               {locations.map((loc) => (
@@ -83,7 +83,7 @@ export default function PropertyFilter() {
             <select
               value={bedrooms}
               onChange={(e) => setBedrooms(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-gold"
             >
               <option value="">{lang === "he" ? "הכל" : "Any"}</option>
               <option value="1">1</option>
@@ -101,7 +101,7 @@ export default function PropertyFilter() {
               type="number"
               value={minPrice}
               onChange={(e) => setMinPrice(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-gold"
               placeholder={lang === "he" ? "מינימום" : "Minimum"}
             />
           </div>
@@ -114,7 +114,7 @@ export default function PropertyFilter() {
               type="number"
               value={maxPrice}
               onChange={(e) => setMaxPrice(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-gold"
               placeholder={lang === "he" ? "מקסימום" : "Maximum"}
             />
           </div>
@@ -122,7 +122,7 @@ export default function PropertyFilter() {
           <div className="mb-4 flex items-end">
             <button
               type="submit"
-              className="bg-blue-600 text-white px-4 py-2 rounded-md font-medium hover:bg-blue-700 transition w-full"
+              className="bg-primary-gold text-white px-4 py-2 rounded-md font-medium hover:bg-primary-gold/80 transition w-full"
             >
               {lang === "he" ? "חיפוש" : "Search"}
             </button>

@@ -41,7 +41,7 @@ export default function HeroSearch() {
                 type="button"
                 className={`flex-1 py-0 px-5 rounded-md font-medium text-center transition-colors h-full flex items-center justify-center min-w-[100px] whitespace-nowrap ${
                   searchType === 'sale'
-                    ? 'bg-blue-600 text-white'
+                    ? 'bg-primary-gold text-white'
                     : 'text-gray-700 hover:bg-gray-200'
                 }`}
                 onClick={() => setSearchType('sale')}
@@ -52,7 +52,7 @@ export default function HeroSearch() {
                 type="button"
                 className={`flex-1 py-0 px-5 rounded-md font-medium text-center transition-colors h-full flex items-center justify-center min-w-[100px] whitespace-nowrap ${
                   searchType === 'rent'
-                    ? 'bg-blue-600 text-white'
+                    ? 'bg-primary-gold text-white'
                     : 'text-gray-700 hover:bg-gray-200'
                 }`}
                 onClick={() => setSearchType('rent')}
@@ -140,7 +140,7 @@ export default function HeroSearch() {
             </label>
             <button
               type="submit"
-              className="w-full md:w-auto bg-blue-600 hover:bg-blue-700 text-white py-2 px-6 rounded-md font-medium transition-colors flex items-center justify-center gap-2 text-sm h-[38px] whitespace-nowrap min-w-[100px]"
+              className="w-full md:w-auto bg-primary-gold hover:bg-primary-gold/80 text-white py-2 px-6 rounded-md font-medium transition-colors flex items-center justify-center gap-2 text-sm h-[38px] whitespace-nowrap min-w-[100px]"
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />

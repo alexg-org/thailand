@@ -55,7 +55,7 @@ export default function PropertyContactForm({
   };
   
   return (
-    <div className="bg-blue-50 p-6 rounded-xl">
+    <div className="bg-primary-gold/10 p-6 rounded-xl">
       <h2 className="text-2xl font-bold text-gray-900 mb-4">
         {lang === "he" ? "מעוניין בנכס זה?" : "Interested in this property?"}
       </h2>
@@ -95,7 +95,7 @@ export default function PropertyContactForm({
               value={formData.email}
               onChange={handleChange}
               required
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 text-gray-900 bg-gray-50"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-primary-gold focus:border-primary-gold text-gray-900 bg-gray-50"
             />
           </div>
           
@@ -130,7 +130,7 @@ export default function PropertyContactForm({
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg font-medium transition-colors disabled:bg-blue-400"
+            className="w-full bg-primary-gold hover:bg-primary-gold/80 text-white py-3 px-6 rounded-lg font-medium transition-colors disabled:bg-primary-gold/50"
           >
             {isSubmitting
               ? (lang === "he" ? "שולח..." : "Sending...")

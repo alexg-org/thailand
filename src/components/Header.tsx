@@ -45,12 +45,12 @@ export default function Header() {
   };
   
   return (
-    <header className={`bg-white sticky top-0 z-10 transition-shadow ${scrolled ? 'shadow-md' : 'shadow-sm'}`}>
+    <header className={`bg-warm-sand/95 backdrop-blur-md sticky top-0 z-10 transition-all duration-300 ${scrolled ? 'shadow-xl border-b border-primary-gold/20' : 'shadow-lg'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           <div className="flex items-center">
             <Link href="/" className="flex items-center">
-              <span className="text-blue-600 font-bold text-xl">Thailand Estates</span>
+              <span className="text-primary-gold font-bold text-xl drop-shadow-sm">Thailand Estates</span>
             </Link>
           </div>
           
@@ -58,50 +58,50 @@ export default function Header() {
           <nav className="hidden md:flex items-center space-x-8" dir={lang === "he" ? "rtl" : "ltr"}>
             <Link
               href="/"
-              className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-base font-medium"
+              className="text-deep-ocean hover:text-primary-gold px-3 py-2 rounded-md text-base font-medium transition-colors duration-200"
             >
               {lang === "he" ? "בית" : "Home"}
             </Link>
             <Link
               href="/about"
-              className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-base font-medium"
+              className="text-deep-ocean hover:text-primary-gold px-3 py-2 rounded-md text-base font-medium transition-colors duration-200"
             >
               {lang === "he" ? "אודות" : "About"}
             </Link>
             <Link
               href="/properties?status=sale"
-              className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-base font-medium"
+              className="text-deep-ocean hover:text-primary-gold px-3 py-2 rounded-md text-base font-medium transition-colors duration-200"
             >
               {lang === "he" ? "נכסים למכירה" : "For Sale"}
             </Link>
             <Link
               href="/properties?status=rent"
-              className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-base font-medium"
+              className="text-deep-ocean hover:text-primary-gold px-3 py-2 rounded-md text-base font-medium transition-colors duration-200"
             >
               {lang === "he" ? "נכסים להשכרה" : "For Rent"}
             </Link>
             <Link
               href="/why-invest"
-              className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-base font-medium"
+              className="text-deep-ocean hover:text-primary-gold px-3 py-2 rounded-md text-base font-medium transition-colors duration-200"
             >
               {lang === "he" ? "למה להשקיע" : "Why Invest"}
             </Link>
             <Link
               href="/blog"
-              className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-base font-medium"
+              className="text-deep-ocean hover:text-primary-gold px-3 py-2 rounded-md text-base font-medium transition-colors duration-200"
             >
               {lang === "he" ? "בלוג" : "Blog"}
             </Link>
             <Link
               href="/#contact"
-              className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-base font-medium"
+              className="text-deep-ocean hover:text-primary-gold px-3 py-2 rounded-md text-base font-medium transition-colors duration-200"
             >
               {lang === "he" ? "צור קשר" : "Contact"}
             </Link>
             
             <button
               onClick={toggleLanguage}
-              className="bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition"
+              className="bg-gradient-thailand text-white px-4 py-2 rounded-lg text-sm font-medium hover:shadow-lg transition-all duration-200 transform hover:-translate-y-0.5"
               aria-label={lang === "he" ? "Switch to English" : "עבור לעברית"}
             >
               {lang === "he" ? "EN" : "עב"}
@@ -112,7 +112,7 @@ export default function Header() {
           <div className="flex items-center md:hidden">
             <button
               onClick={toggleLanguage}
-              className="bg-blue-600 text-white px-3 py-1 rounded-md text-sm font-medium hover:bg-blue-700 transition mr-4"
+              className="bg-gradient-thailand text-white px-3 py-1 rounded-lg text-sm font-medium hover:shadow-lg transition-all duration-200 mr-4"
               aria-label={lang === "he" ? "Switch to English" : "עבור לעברית"}
             >
               {lang === "he" ? "EN" : "עב"}
@@ -120,7 +120,7 @@ export default function Header() {
             
             <button
               onClick={toggleMenu}
-              className="text-gray-700 hover:text-blue-600 focus:outline-none"
+              className="text-deep-ocean hover:text-primary-gold focus:outline-none transition-colors duration-200"
               aria-label="Toggle menu"
             >
               <svg 
@@ -148,52 +148,52 @@ export default function Header() {
         }`}
         onClick={handleMenuClick}
       >
-        <div className="px-4 py-2 space-y-1 bg-gray-50" dir={lang === "he" ? "rtl" : "ltr"}>
+        <div className="px-4 py-2 space-y-1 bg-warm-sand/90 backdrop-blur-sm border-t border-primary-gold/20" dir={lang === "he" ? "rtl" : "ltr"}>
           <Link
             href="/"
-            className="block text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-base font-medium"
+            className="block text-deep-ocean hover:text-primary-gold px-3 py-2 rounded-md text-base font-medium transition-colors duration-200"
             onClick={() => setIsMenuOpen(false)}
           >
             {lang === "he" ? "בית" : "Home"}
           </Link>
           <Link
             href="/about"
-            className="block text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-base font-medium"
+            className="block text-deep-ocean hover:text-primary-gold px-3 py-2 rounded-md text-base font-medium transition-colors duration-200"
             onClick={() => setIsMenuOpen(false)}
           >
             {lang === "he" ? "אודות" : "About"}
           </Link>
           <Link
             href="/properties?status=sale"
-            className="block text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-base font-medium"
+            className="block text-deep-ocean hover:text-primary-gold px-3 py-2 rounded-md text-base font-medium transition-colors duration-200"
             onClick={() => setIsMenuOpen(false)}
           >
             {lang === "he" ? "נכסים למכירה" : "For Sale"}
           </Link>
           <Link
             href="/properties?status=rent"
-            className="block text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-base font-medium"
+            className="block text-deep-ocean hover:text-primary-gold px-3 py-2 rounded-md text-base font-medium transition-colors duration-200"
             onClick={() => setIsMenuOpen(false)}
           >
             {lang === "he" ? "נכסים להשכרה" : "For Rent"}
           </Link>
           <Link
             href="/why-invest"
-            className="block text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-base font-medium"
+            className="block text-deep-ocean hover:text-primary-gold px-3 py-2 rounded-md text-base font-medium transition-colors duration-200"
             onClick={() => setIsMenuOpen(false)}
           >
             {lang === "he" ? "למה להשקיע" : "Why Invest"}
           </Link>
           <Link
             href="/blog"
-            className="block text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-base font-medium"
+            className="block text-deep-ocean hover:text-primary-gold px-3 py-2 rounded-md text-base font-medium transition-colors duration-200"
             onClick={() => setIsMenuOpen(false)}
           >
             {lang === "he" ? "בלוג" : "Blog"}
           </Link>
           <Link
             href="/#contact"
-            className="block text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-base font-medium"
+            className="block text-deep-ocean hover:text-primary-gold px-3 py-2 rounded-md text-base font-medium transition-colors duration-200"
             onClick={() => setIsMenuOpen(false)}
           >
             {lang === "he" ? "צור קשר" : "Contact"}
