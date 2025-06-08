@@ -1,13 +1,12 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import PropertyCard from '@/components/PropertyCard';
-import PropertyFilter from '@/components/PropertyFilter';
 import { properties } from '@/data/properties';
 import { useSearchParams } from 'next/navigation';
 
-export default function PropertiesPage() {
+function PropertiesContent() {
   const { lang } = useLanguage();
   const [isLoading, setIsLoading] = useState(true);
   const [filteredProperties, setFilteredProperties] = useState(properties);
@@ -111,5 +110,15 @@ export default function PropertiesPage() {
         )}
       </div>
     </div>
+  );
+}
+
+export default function PropertiesPage() {
+  return (
+    <Suspense fallback={<div className="flex justify-center items-center min-h-screen">
+      <div className="text-lg">Loading...</div>
+    </div>}>
+      <PropertiesContent />
+    </Suspense>
   );
 }

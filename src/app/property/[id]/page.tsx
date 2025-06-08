@@ -3,9 +3,10 @@ import { notFound } from 'next/navigation';
 import PropertyDetailClient from './PropertyDetailClient';
 
 // This is a server component
-export default function PropertyDetailPage({ params }: { params: { id: string } }) {
+export default async function PropertyDetailPage({ params }: { params: Promise<{ id: string }> }) {
   // Parse the ID parameter on the server side
-  const propertyId = parseInt(params.id);
+  const { id } = await params;
+  const propertyId = parseInt(id);
   
   // Find the property data on the server
   const property = properties.find(p => p.id === propertyId);

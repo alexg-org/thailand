@@ -69,7 +69,7 @@ export default function PropertyTestimonials() {
                 <span key={i} className="text-yellow-400">★</span>
               ))}
             </div>
-            <p className="text-gray-600 italic">"{testimonial.text}"</p>
+            <p className="text-gray-600 italic">&ldquo;{testimonial.text}&rdquo;</p>
           </div>
         ))}
       </div>

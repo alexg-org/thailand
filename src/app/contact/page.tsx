@@ -2,7 +2,6 @@
 
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useState } from 'react';
-import Image from 'next/image';
 
 export default function ContactPage() {
   const { lang } = useLanguage();

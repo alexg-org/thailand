@@ -3,9 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import PropertyCard from '@/components/PropertyCard';
-import PropertyFilter from '@/components/PropertyFilter';
 import HeroSearch from '@/components/HeroSearch';
-import PropertyLocationGrid from '@/components/PropertyLocationGrid';
 import PropertyTestimonials from '@/components/PropertyTestimonials';
 import { properties } from '@/data/properties';
 import Image from 'next/image';
@@ -37,7 +35,7 @@ export default function Home() {
 
   // Close dropdown when clicking outside
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
+    const handleClickOutside = () => {
       if (isDropdownOpen) {
         setIsDropdownOpen(false);
       }
