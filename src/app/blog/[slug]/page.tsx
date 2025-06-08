@@ -16,7 +16,9 @@ interface BlogPost {
   contentHe: string;
   imageUrl: string;
   date: string;
+  dateHe: string;
   author: string;
+  authorHe: string;
   slug: string;
 }
 
@@ -76,7 +78,9 @@ const blogPosts: BlogPost[] = [
     `,
     imageUrl: '/images/Thailand-Business-Properties.jpg',
     date: 'June 1, 2025',
+    dateHe: '1 ביוני, 2025',
     author: 'Michael Johnson',
+    authorHe: 'מיכאל ג\'ונסון',
     slug: 'why-thailand-is-great-investment-2025'
   },
   {
@@ -133,7 +137,9 @@ const blogPosts: BlogPost[] = [
     `,
     imageUrl: '/images/Luxury-Condos.jpg',
     date: 'May 15, 2025',
+    dateHe: '15 במאי, 2025',
     author: 'Sarah Thompson',
+    authorHe: 'שרה תומפסון',
     slug: 'best-areas-to-invest-bangkok-2025'
   },
   {
@@ -234,7 +240,9 @@ const blogPosts: BlogPost[] = [
     `,
     imageUrl: '/images/thailand-vila.jpg',
     date: 'April 22, 2025',
+    dateHe: '22 באפריל, 2025',
     author: 'David Lee',
+    authorHe: 'דויד לי',
     slug: 'phuket-vs-koh-samui-investment-2025'
   }
 ];
@@ -288,13 +296,13 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                 </svg>
-                {post.date}
+                {lang === "he" ? post.dateHe : post.date}
               </div>
               <div className="flex items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                 </svg>
-                {post.author}
+                {lang === "he" ? post.authorHe : post.author}
               </div>
             </div>
             
@@ -363,7 +371,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                   </div>
                   <div className="p-6" dir={lang === "he" ? "rtl" : "ltr"}>
                     <div className="text-sm text-gray-500 mb-2">
-                      {relatedPost.date}
+                      {lang === "he" ? relatedPost.dateHe : relatedPost.date}
                     </div>
                     <h3 className="text-xl font-bold text-gray-900 mb-2">
                       {lang === "he" ? relatedPost.titleHe : relatedPost.title}

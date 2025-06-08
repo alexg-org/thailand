@@ -15,7 +15,9 @@ interface BlogPost {
   contentHe: string;
   imageUrl: string;
   date: string;
+  dateHe: string;
   author: string;
+  authorHe: string;
   slug: string;
 }
 
@@ -75,7 +77,9 @@ const blogPosts: BlogPost[] = [
     `,
     imageUrl: '/images/Thailand-Business-Properties.jpg',
     date: 'June 1, 2025',
+    dateHe: '1 ביוני, 2025',
     author: 'Michael Johnson',
+    authorHe: 'מיכאל ג\'ונסון',
     slug: 'why-thailand-is-great-investment-2025'
   },
   {
@@ -132,7 +136,9 @@ const blogPosts: BlogPost[] = [
     `,
     imageUrl: '/images/Luxury-Condos.jpg',
     date: 'May 15, 2025',
+    dateHe: '15 במאי, 2025',
     author: 'Sarah Thompson',
+    authorHe: 'שרה תומפסון',
     slug: 'best-areas-to-invest-bangkok-2025'
   },
   {
@@ -233,7 +239,9 @@ const blogPosts: BlogPost[] = [
     `,
     imageUrl: '/images/thailand-vila.jpg',
     date: 'April 22, 2025',
+    dateHe: '22 באפריל, 2025',
     author: 'David Lee',
+    authorHe: 'דויד לי',
     slug: 'phuket-vs-koh-samui-investment-2025'
   }
 ];
@@ -268,7 +276,7 @@ export default function BlogPage() {
               </div>
               <div className="p-6" dir={lang === "he" ? "rtl" : "ltr"}>
                 <div className="text-sm text-gray-500 mb-2">
-                  {post.date} • {post.author}
+                  {lang === "he" ? post.dateHe : post.date} • {lang === "he" ? post.authorHe : post.author}
                 </div>
                 <h2 className="text-xl font-bold text-gray-900 mb-2">
                   {lang === "he" ? post.titleHe : post.title}
@@ -292,7 +300,7 @@ export default function BlogPage() {
         
         {/* Newsletter Signup */}
         <div className="bg-blue-600 text-white rounded-xl p-8 mt-16">
-          <div className="md:flex items-center justify-between">
+          <div className="md:flex items-center justify-between" dir={lang === "he" ? "rtl" : "ltr"}>
             <div className="md:w-1/2 mb-6 md:mb-0">
               <h2 className="text-2xl font-bold mb-2">
                 {lang === "he" ? "הירשמו לניוזלטר שלנו" : "Subscribe to Our Newsletter"}
@@ -305,11 +313,11 @@ export default function BlogPage() {
               </p>
             </div>
             <div className="md:w-1/2">
-              <form className="flex flex-col sm:flex-row gap-2">
+              <form className="flex flex-col sm:flex-row gap-2" dir={lang === "he" ? "rtl" : "ltr"}>
                 <input
                   type="email"
                   placeholder={lang === "he" ? "כתובת האימייל שלך" : "Your email address"}
-                  className="flex-grow px-4 py-2 rounded-lg text-gray-900 focus:outline-none"
+                  className="flex-grow px-4 py-2 rounded-lg text-gray-900 focus:outline-none text-gray-900 bg-gray-50"
                   required
                 />
                 <button
