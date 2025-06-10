@@ -60,7 +60,7 @@ export default function Home() {
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col justify-center items-center">
           <div className="bg-black/30 px-5 py-3 rounded-lg">
             <h1 
-              className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 text-center drop-shadow-lg"
+              className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-gold mb-4 text-center drop-shadow-lg"
               dir={lang === "he" ? "rtl" : "ltr"}
             >
               {lang === "he" 
@@ -69,7 +69,7 @@ export default function Home() {
               }
             </h1>
             <p 
-              className="text-xl md:text-2xl text-white mb-2 max-w-2xl mx-auto text-center drop-shadow-lg"
+              className="text-xl md:text-2xl text-primary-gold mb-2 max-w-2xl mx-auto text-center drop-shadow-lg"
               dir={lang === "he" ? "rtl" : "ltr"}
             >
               {lang === "he"
@@ -220,8 +220,19 @@ export default function Home() {
             {lang === "he" ? "למה להשקיע בנדל\"ן בתאילנד?" : "Why Invest in Thailand Real Estate?"}
           </h2>
           
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-            <div dir={lang === "he" ? "rtl" : "ltr"}>
+          <div className={`grid grid-cols-1 lg:grid-cols-2 gap-8 items-center ${lang === "he" ? "lg:grid-flow-col-dense" : ""}`}>
+            {lang === "he" && (
+              <div className="relative h-96 rounded-xl overflow-hidden lg:order-1">
+                <Image
+                  src="/images/pexels-jimmy-teoh-294331-2402000.jpg"
+                  alt={lang === "he" ? "השקעות נדל\"ן בתאילנד" : "Thailand Real Estate Investments"}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            )}
+            
+            <div dir={lang === "he" ? "rtl" : "ltr"} className={lang === "he" ? "lg:order-2" : ""}>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">
                 {lang === "he" ? "הזדמנויות השקעה עם תשואות גבוהות" : "Investment Opportunities with High Returns"}
               </h3>
@@ -265,14 +276,16 @@ export default function Home() {
               </Link>
             </div>
             
-            <div className="relative h-96 rounded-xl overflow-hidden">
-              <Image
-                src="/images/pexels-jimmy-teoh-294331-2402000.jpg"
-                alt={lang === "he" ? "השקעות נדל\"ן בתאילנד" : "Thailand Real Estate Investments"}
-                fill
-                className="object-cover"
-              />
-            </div>
+            {lang === "en" && (
+              <div className="relative h-96 rounded-xl overflow-hidden">
+                <Image
+                  src="/images/pexels-jimmy-teoh-294331-2402000.jpg"
+                  alt={lang === "he" ? "השקעות נדל\"ן בתאילנד" : "Thailand Real Estate Investments"}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            )}
           </div>
         </div>
       </section>
