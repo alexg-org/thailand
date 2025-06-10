@@ -225,7 +225,7 @@ export default function Home() {
               <div className="relative h-96 rounded-xl overflow-hidden lg:order-1">
                 <Image
                   src="/images/pexels-jimmy-teoh-294331-2402000.jpg"
-                  alt={lang === "he" ? "השקעות נדל\"ן בתאילנד" : "Thailand Real Estate Investments"}
+                  alt="השקעות נדלן בתאילנד"
                   fill
                   className="object-cover"
                 />
@@ -280,7 +280,7 @@ export default function Home() {
               <div className="relative h-96 rounded-xl overflow-hidden">
                 <Image
                   src="/images/pexels-jimmy-teoh-294331-2402000.jpg"
-                  alt={lang === "he" ? "השקעות נדל\"ן בתאילנד" : "Thailand Real Estate Investments"}
+                  alt="Thailand Real Estate Investments"
                   fill
                   className="object-cover"
                 />
